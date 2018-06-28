@@ -49,7 +49,7 @@ function autoComplete(event){
             /*insert a input field that will hold the current array item's value:*/
             filterDiv.innerHTML += "<input type='hidden' value='" + arrItem + "'>";
             /*execute a function when someone clicks on the item value (div element):*/
-            console.log('This: ', filterDiv);
+            console.log('filterDiv: ', filterDiv);
             filterDiv.addEventListener("click", function (e) {
                 // insert the value for the autocomplete text field:
                 this.parentNode.previousSibling.previousSibling.value = this.getElementsByTagName("input")[0].value;
@@ -68,6 +68,7 @@ function autoComplete(event){
     // inp.addEventListener("keydown", function (e) {
     this.addEventListener("keydown", function (e) {
         var x = document.getElementById(this.id + "autocomplete-list");
+        console.log('x', x);
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) {
             /*If the arrow DOWN key is pressed,
