@@ -2,6 +2,7 @@
 
 const github = new Github();
 const codePen = new CodePen();
+const ui = new UI();
 
 const searchForGitHubUser = document.getElementById('searchForGitHubUser')
 
@@ -24,13 +25,18 @@ searchForGitHubUser.addEventListener('keyup', (event) => {
                     console.log(data.profile);
                     if(data.profile.id){
                         console.log('Valid User');
+                        ui.showValidation('searchForGitHubUser', 'success')
                     }
                     else if(data.profile.message){
                         console.log(data.profile.message);
                         console.log('InValid User');
+                        ui.showValidation('searchForGitHubUser', 'failure')
                     }
                 })
         }, 300)
+    }
+    else {
+        //clear
     }
 })
 
@@ -44,13 +50,21 @@ searchForCodePenUser.addEventListener('keyup', (event) => {
             codePen.getCodePenUser(codePenUsernameValue)
                 .then((returnObj) => {
                     console.log(returnObj);
+                    //window
+                    // console.log(this);
                     if(returnObj.success){
                         console.log('Valid User');
+                        ui.showValidation('searchForCodePenUser', 'success')
                     }
                     else if(!returnObj.success){
+                        
                         console.log('Invalid User');
+                        ui.showValidation('searchForCodePenUser', 'failure')
                     }
                 })
         }, 300)
+    }
+    else {
+        // clear
     }
 })
