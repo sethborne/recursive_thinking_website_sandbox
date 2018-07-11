@@ -1,0 +1,12 @@
+.validationSuccess {
+    /* background-color: green; */
+    color: green;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.validationFailure {
+    color: red;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
