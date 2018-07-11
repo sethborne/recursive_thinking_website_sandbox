@@ -1,39 +1,55 @@
 // import { apiInfo } from '../apiKey/apiKey.js'
 
-const github = new Github;
+const github = new Github();
+const codePen = new CodePen();
 
-const searchForUser = document.getElementById('searchForUser')
+const searchForGitHubUser = document.getElementById('searchForGitHubUser')
 
-// searchForUser.addEventListener('keyup', (event) => {
-//     const userText = event.target.value;
-    
-//     if(userText !== ''){
-//         // continue
-//         console.log(userText);
-//         // call function to make http call
-//         github.getUser(userText)
-//             .then(data => {
-//                 console.log(data);
-//             })
-//     }
+const searchForCodePenUser = document.getElementById('searchForCodePenUser')
+
 let timeout = null;
 
-searchForUser.addEventListener('keyup', (event) => {
-    const userText = event.target.value;
+searchForGitHubUser.addEventListener('keyup', (event) => {
+    const gitHubUsernameValue = event.target.value;
     
     clearTimeout(timeout);
     
-    // timeout = setTimeout(function(){
-    //     console.log('Input', userText);
-    // }, 300)
-    
-    if(userText !== ''){
+    if(gitHubUsernameValue !== ''){
         // continue
         timeout = setTimeout(() => {
-            // console.log('Input', userText);
-            github.getUser(userText)
+            // console.log('Input', gitHubUsernameValue);
+            github.getUser(gitHubUsernameValue)
                 .then(data => {
                     console.log(data);
+                    console.log(data.profile);
+                    if(data.profile.id){
+                        console.log('Valid User');
+                    }
+                    else if(data.profile.message){
+                        console.log(data.profile.message);
+                        console.log('InValid User');
+                    }
+                })
+        }, 300)
+    }
+})
+
+searchForCodePenUser.addEventListener('keyup', (event) => {
+    const codePenUsernameValue = event.target.value;
+    clearTimeout(timeout)
+    if(codePenUsernameValue !== ''){
+        timeout = setTimeout(() => {
+            // console.log('Input', codePenUsernameValue);
+            // make request
+            codePen.getCodePenUser(codePenUsernameValue)
+                .then((returnObj) => {
+                    console.log(returnObj);
+                    if(returnObj.success){
+                        console.log('Valid User');
+                    }
+                    else if(!returnObj.success){
+                        console.log('Invalid User');
+                    }
                 })
         }, 300)
     }
