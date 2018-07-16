@@ -64,15 +64,17 @@ function buildJSONStringForSkillOutput(skillArray, skillTable){
     // console.log(JSONString);
     let JSONString1 = JSON.stringify(JSONString)
     console.log(JSONString1);
-    // let regexS = /("S")/gi;
-    // let regexL = /("L")/gi
-    // console.log(testRegex.test(JSONString1));
-    // JSONString1 = JSONString1.replace(regexS, 'S')
-    // JSONString1 = JSONString1.replace(regexL, 'L')
-    // console.log(JSONString1);
     fs.writeFileSync(`${skillTable}.json`, JSONString1, 'utf8')
 }
 
 buildJSONStringForSkillOutput(allSkillsLanguageArray, 'RecursiveThinkingProfileSkillsLanguage')
 buildJSONStringForSkillOutput(allSkillsProfessionalArray, 'RecursiveThinkingProfileSkillsProfessional')
 buildJSONStringForSkillOutput(allSkillsSoftwareArray, 'RecursiveThinkingProfileSkillsSoftware')
+
+
+// let regexS = /("S")/gi;
+// let regexL = /("L")/gi
+// console.log(testRegex.test(JSONString1));
+// JSONString1 = JSONString1.replace(regexS, 'S')
+// JSONString1 = JSONString1.replace(regexL, 'L')
+// console.log(JSONString1);
