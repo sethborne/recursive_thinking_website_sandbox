@@ -1,0 +1,131 @@
+{
+    "RecursiveThinkingProfileSkillsProfessional": [{
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "userexperiencedesign"
+                },
+                "value": {
+                    "name": {
+                        "S": "User Experience Design"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "userresearch"
+                },
+                "value": {
+                    "name": {
+                        "S": "User Research"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "informationarchitecture"
+                },
+                "value": {
+                    "name": {
+                        "S": "Information Architecture"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "visualdesign"
+                },
+                "value": {
+                    "name": {
+                        "S": "Visual Design"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "usercentereddesign"
+                },
+                "value": {
+                    "name": {
+                        "S": "User Centered Design"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "wireframingdesign"
+                },
+                "value": {
+                    "name": {
+                        "S": "Wireframing Design"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "interactiondesign"
+                },
+                "value": {
+                    "name": {
+                        "S": "Interaction Design"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }, {
+        "PutRequest": {
+            "Item": {
+                "Id": {
+                    "S": "frontenddevelopment"
+                },
+                "value": {
+                    "name": {
+                        "S": "Front End Development"
+                    },
+                    "users": {
+                        "L": []
+                    }
+                }
+            }
+        }
+    }]
+}
