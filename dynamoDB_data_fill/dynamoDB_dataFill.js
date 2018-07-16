@@ -49,11 +49,12 @@ function buildJSONStringForSkillOutput(skillArray, skillTable){
     for(let i = 0; i < skillArray.length; i += 1){
         let tempObj = {
             PutRequest:{
-                Item: {
+                Item: { 
                     Id: { S: skillArray[i][0]},
-                    value: {
+                    value: { M: {
                         name: { S: skillArray[i][1]},
                         users: { L: []}
+                        }
                     }
                 }
             }
@@ -63,6 +64,12 @@ function buildJSONStringForSkillOutput(skillArray, skillTable){
     // console.log(JSONString);
     let JSONString1 = JSON.stringify(JSONString)
     console.log(JSONString1);
+    // let regexS = /("S")/gi;
+    // let regexL = /("L")/gi
+    // console.log(testRegex.test(JSONString1));
+    // JSONString1 = JSONString1.replace(regexS, 'S')
+    // JSONString1 = JSONString1.replace(regexL, 'L')
+    // console.log(JSONString1);
     fs.writeFileSync(`${skillTable}.json`, JSONString1, 'utf8')
 }
 
