@@ -105,3 +105,72 @@ const databaseAllHomeScreenQuotes = [
         _quotedByUser: '0000000010'
     }
 ]
+
+const slideHead = document.getElementById('slideHead')
+for (var i=0; i<databaseAllHomeScreenQuotes.length; i++){
+    let quoteId = databaseAllHomeScreenQuotes[i]._quotedByUser;
+    let quote = databaseAllHomeScreenQuotes[i].quote;
+    for (var j=0; j<databaseAllUsers.length; j++){
+        if (databaseAllUsers[j].Id==quoteId){
+            let name = '-'+databaseAllUsers[j].name +', '+ databaseAllUsers[j].title;
+            let image = databaseAllUsers[j].image;
+            slideHead.innerHTML+=`<div class="mySlides fade">
+            <section id="homePage">   
+                <section class="section famousQuote">
+                    <div class="grid gutters third u-textCenter">
+                        <div class="cell cell-center">
+                            <div class="content">
+                                <img class="imgAvatarLarge" src="${image}" alt="">
+                            </div>
+                        </div>
+                        <div class="cell cell-center">
+                            <div class="content quoteAlignment">
+                                <p>"${quote}"</p>
+                                <br><br>
+                                <p>${name} </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>`;
+        }
+    }
+}
+slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+<a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>`;
+
+// Add img dots to carousel
+const dotGenerator = document.getElementById("dotZone");
+for (var i = 0; i<databaseAllHomeScreenQuotes.length; i++){
+    dotGenerator.innerHTML+=`<span class="dot" onclick="currentSlide(${i})"></span>`
+}
+
+
+// Carousel JS
+
+var slideIndex = 0;
+showSlides();
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1} 
+    slides[slideIndex-1].style.display = "block"; 
+    setTimeout(showSlides, 10000); // Change image every 10 seconds
+}
+
