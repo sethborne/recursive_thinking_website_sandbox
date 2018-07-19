@@ -140,37 +140,25 @@ for (var i=0; i<databaseAllHomeScreenQuotes.length; i++){
 slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
 <a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>`;
 
-// Add img dots to carousel
-const dotGenerator = document.getElementById("dotZone");
-for (var i = 0; i<databaseAllHomeScreenQuotes.length; i++){
-    dotGenerator.innerHTML+=`<span class="dot" onclick="currentSlide(${i})"></span>`
-}
-
-
 // Carousel JS
 
-var slideIndex = 0;
-showSlides();
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Looking for a timing solution to load the next slide after a certain time period. Haven't been able to link setTimeout with an advancement of slides. 
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    
+    if (n > slides.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slides[slideIndex-1].style.display = "block"; 
+}
 
 // Next/previous controls
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
-
-// Thumbnail image controls
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-
-function showSlides() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1} 
-    slides[slideIndex-1].style.display = "block"; 
-    setTimeout(showSlides, 10000); // Change image every 10 seconds
-}
-
