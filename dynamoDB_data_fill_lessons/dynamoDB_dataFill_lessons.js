@@ -12,8 +12,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/08/2018').toString() ],
-        [ 'updatedAt', new Date('07/08/2018').toString() ],
+        [ 'createdAt', new Date('2018-06-08T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-08T12:00:00Z').toString() ]
     ],
     [
         [ 'Id' ],
@@ -23,8 +23,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/10/2018').toString() ],
-        [ 'updatedAt', new Date('07/10/2018').toString() ]
+        [ 'createdAt', new Date('2018-06-10T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-10T12:00:00Z').toString() ]
     ],
     [
         [ 'Id' ],
@@ -34,8 +34,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/12/2018').toString() ],
-        [ 'updatedAt', new Date('07/12/2018').toString() ]
+        [ 'createdAt', new Date('2018-06-12T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-12T12:00:00Z').toString() ]
     ],
     [
         [ 'Id' ],
@@ -45,8 +45,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/12/2018').toString() ],
-        [ 'updatedAt', new Date('07/12/2018').toString() ]
+        [ 'createdAt', new Date('2018-06-14T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-14T12:00:00Z').toString() ]
     ],
     [
         [ 'Id' ],
@@ -56,8 +56,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/14/2018').toString() ],
-        [ 'updatedAt', new Date('07/14/2018').toString() ]
+        [ 'createdAt', new Date('2018-06-16T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-16T12:00:00Z').toString() ]
     ],
     [
         [ 'Id' ],
@@ -67,8 +67,8 @@ const allLessonsArray = [
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [] ],
-        [ 'createdAt', new Date('06/16/2018').toString() ],
-        [ 'updatedAt', new Date('07/16/2018').toString() ]
+        [ 'createdAt', new Date('2018-06-18T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-07-18T12:00:00Z').toString() ]
     ]
 ]
 

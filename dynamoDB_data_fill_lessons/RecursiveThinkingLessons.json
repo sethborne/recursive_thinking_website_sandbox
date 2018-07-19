@@ -3,7 +3,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a250-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad25d0-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Designing with A-Frame VR"
@@ -24,10 +24,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Fri Jun 08 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Fri Jun 08 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Sun Jul 08 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Sun Jul 08 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
@@ -35,7 +35,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a251-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad4ce0-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Building a city with HTML & CSS"
@@ -56,10 +56,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Sun Jun 10 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Sun Jun 10 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Tue Jul 10 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Tue Jul 10 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
@@ -67,7 +67,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a252-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad4ce1-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Building a calculator with HTML, CSS & JavaScript"
@@ -88,10 +88,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Tue Jun 12 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Tue Jun 12 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Thu Jul 12 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Thu Jul 12 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
@@ -99,7 +99,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a253-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad4ce2-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Building a timer with HTML, CSS & JavaScript"
@@ -120,10 +120,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Tue Jun 12 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Thu Jun 14 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Thu Jul 12 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Sat Jul 14 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
@@ -131,7 +131,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a254-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad4ce3-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Building a website with HTML, CSS & JavaScript"
@@ -152,10 +152,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Thu Jun 14 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Sat Jun 16 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Sat Jul 14 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Mon Jul 16 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
@@ -163,7 +163,7 @@
         "PutRequest": {
             "Item": {
                 "Id": {
-                    "S": "a324a255-8931-11e8-b0c1-f36d81f34956"
+                    "S": "6bad4ce4-8aea-11e8-8112-f3f3fc67c07f"
                 },
                 "title": {
                     "S": "Building a web application with HTML, CSS & JavaScript"
@@ -184,10 +184,10 @@
                     "L": []
                 },
                 "createdAt": {
-                    "S": "Sat Jun 16 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Mon Jun 18 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 },
                 "updatedAt": {
-                    "S": "Mon Jul 16 2018 00:00:00 GMT-0700 (Pacific Daylight Time)"
+                    "S": "Wed Jul 18 2018 05:00:00 GMT-0700 (Pacific Daylight Time)"
                 }
             }
         }
