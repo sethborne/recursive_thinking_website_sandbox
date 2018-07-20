@@ -137,28 +137,47 @@ for (var i=0; i<databaseAllHomeScreenQuotes.length; i++){
         }
     }
 }
-slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-1)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-<a class="next" onclick="plusSlides(1)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>`;
+slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-2)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+<a class="next" onclick="plusSlides(0)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>`;
 
-// Carousel JS
+// Carousel JS\
 
-var slideIndex = 1;
+let slideIndex;
 showSlides(slideIndex);
 
-// Looking for a timing solution to load the next slide after a certain time period. Haven't been able to link setTimeout with an advancement of slides. 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    
-    if (n > slides.length) {slideIndex = 1} 
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
-    }
-    slides[slideIndex-1].style.display = "block"; 
-}
+// I commented out the timer function. With them running, it will auto-scroll but still skips around once you change the profile card (through the chevrons)
 
-// Next/previous controls
+function showSlides(n){
+    // Defines the start position. Could be randomized. 
+    if (slideIndex==undefined){
+        slideIndex=0;
+    }
+    n=slideIndex;
+    // Gets all slide info
+    let slides=document.getElementsByClassName("mySlides");
+    // Handles looping through slides
+    if (n==slides.length){slideIndex=0;}
+    if (n<0){slideIndex=slides.length-1;}
+    // Changes display to all other slides to none to only display current slide. 
+    for (var i=0; i<slides.length;i++){
+        slides[i].style.display="none";
+    }
+    // Left in to watch the looping
+    console.log("n= "+n)
+    console.log("slideIndex="+slideIndex)
+    // Selects current slide to display
+    slides[slideIndex].style.display="block";
+    // clearTimeout(showSlides);
+    // timer();
+    slideIndex++;
+    
+}
+// function timer(){
+//     setTimeout(showSlides, 3000);
+    
+// }
+
+// Takes input from the prev/next chevrons to advance the index. 
 function plusSlides(n) {
-    showSlides(slideIndex += n);
+    showSlides(slideIndex+=n);
 }
