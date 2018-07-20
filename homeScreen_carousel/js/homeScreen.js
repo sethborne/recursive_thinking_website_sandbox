@@ -142,6 +142,7 @@ slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-2)"><i class="fa fa-c
 
 // Carousel JS\
 
+// A Warren Hellman Signature Function
 let slideIndex;
 showSlides(slideIndex);
 
@@ -169,13 +170,9 @@ function showSlides(n){
     // starts timer
     myTimer;
 }
-function timer(n){
+function plusSlides(n){
     slideIndex+=n;
     showSlides(slideIndex);
-    myTimer;    
-}
-
-// Takes input from the prev/next chevrons to advance the index. 
-function plusSlides(n) {
-    timer(n);
+    clearInterval(myTimer);
+    myTimer = setInterval(showSlides, 5000);
 }
