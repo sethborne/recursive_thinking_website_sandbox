@@ -145,10 +145,11 @@ slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-2)"><i class="fa fa-c
 let slideIndex;
 showSlides(slideIndex);
 
-// I commented out the timer function. With them running, it will auto-scroll but still skips around once you change the profile card (through the chevrons)
+var myTimer = setInterval(showSlides, 15000);
 
 function showSlides(n){
     // Defines the start position. Could be randomized. 
+    // clearInterval(myTimer);
     if (slideIndex==undefined){
         slideIndex=0;
     }
@@ -162,22 +163,19 @@ function showSlides(n){
     for (var i=0; i<slides.length;i++){
         slides[i].style.display="none";
     }
-    // Left in to watch the looping
-    console.log("n= "+n)
-    console.log("slideIndex="+slideIndex)
     // Selects current slide to display
     slides[slideIndex].style.display="block";
-    // clearTimeout(showSlides);
-    // timer();
     slideIndex++;
-    
+    // starts timer
+    myTimer;
 }
-// function timer(){
-//     setTimeout(showSlides, 3000);
-    
-// }
+function timer(n){
+    slideIndex+=n;
+    showSlides(slideIndex);
+    myTimer;    
+}
 
 // Takes input from the prev/next chevrons to advance the index. 
 function plusSlides(n) {
-    showSlides(slideIndex+=n);
+    timer(n);
 }
