@@ -42,10 +42,10 @@ const allSkillsSoftwareArray = [
 ]
 
 function buildJSONStringForSkillOutput(skillArray, skillTable){
-    let JSONString = {
+    let string = {
 
     }
-    JSONString[skillTable] = []
+    string[skillTable] = []
     for(let i = 0; i < skillArray.length; i += 1){
         let tempObj = {
             PutRequest:{
@@ -59,12 +59,12 @@ function buildJSONStringForSkillOutput(skillArray, skillTable){
                 }
             }
         }
-        JSONString[skillTable].push(tempObj)
+        string[skillTable].push(tempObj)
     }
     // console.log(JSONString);
-    let JSONString1 = JSON.stringify(JSONString)
-    console.log(JSONString1);
-    fs.writeFileSync(`${skillTable}.json`, JSONString1, 'utf8')
+    let JSONString = JSON.stringify(string)
+    console.log(JSONString);
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, JSONString, 'utf8')
 }
 
 buildJSONStringForSkillOutput(allSkillsLanguageArray, 'RecursiveThinkingProfileSkillsLanguage')
