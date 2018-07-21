@@ -1,5 +1,10 @@
 let fs = require('fs');
+let AWS = require('aws-sdk');
+let util = require('util');
 const uuidv1 = require('uuid/v1');
+
+let dateFunction = require('../all_functions/all_functions.js');
+// console.log('in question', dateFunction.shiftDays('before', 45).toString());
 
 const allQuestionsArray = [
     [
@@ -107,7 +112,16 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
     // console.log(string);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`${questionTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, JSONString, 'utf8')
+    let readQuestionObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, 'utf8');
+    let parseReadQuestionObj = JSON.parse(readQuestionObj)
+    let questionObj = []
+    for(let item = 0; item < parseReadQuestionObj['RecursiveThinkingInterviewQuestions'].length; item += 1){
+        let temp = AWS.DynamoDB.Converter.unmarshall(parseReadQuestionObj['RecursiveThinkingInterviewQuestions'][item]['PutRequest']['Item']);
+        questionObj.push(temp)
+    }
+    questionObj = JSON.stringify(questionObj)
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/${questionTable}.json`, questionObj, 'utf8')
 }
 
 buildJSONStringForLessonOutput(allQuestionsArray, 'RecursiveThinkingInterviewQuestions')
