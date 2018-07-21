@@ -102,7 +102,8 @@ function buildJSONStringForHomeScreenQuotesOutput(homeScreenQuotesArray, homeScr
     // console.log(string);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`${homeScreenQuotesTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${homeScreenQuotesTable}.json`, JSONString, 'utf8')
+    // let readHomeScreenQuotesObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${homeScreenQuotesTable}.json`, 'utf8');
 }
 
 buildJSONStringForHomeScreenQuotesOutput(allHomeScreenQuotesArray, 'RecursiveThinkingHomeScreenQuotes')
