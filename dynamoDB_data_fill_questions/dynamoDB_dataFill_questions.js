@@ -6,6 +6,14 @@ const uuidv1 = require('uuid/v1');
 let dateFunction = require('../all_functions/all_functions.js');
 // console.log('in question', dateFunction.shiftDays('before', 45).toString());
 
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
+console.log(currentIdsForUsers);
+
+let readJSONFromInterviewQuestionsIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsIdArray.json', 'utf8');
+let currentIdsForInterviewQuestions = JSON.parse(readJSONFromInterviewQuestionsIdFile)
+console.log(currentIdsForInterviewQuestions);
+
 const allQuestionsArray = [
     [
         [ 'Id' ],
@@ -50,30 +58,37 @@ const allQuestionsArray = [
         [ 'createdAt', new Date('2018-06-20T12:00:00Z').toString() ],
         [ 'updatedAt', new Date('2018-07-20T12:00:00Z').toString() ],
         [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build a JS Jukebox'] ,
-        [ 'submitted', new Date('2018-08-22T12:00:00Z').toString() ],
-        ['description', 'Social innovation, collaborative cities corporate social responsibility, innovation fairness resilient state of play social return on investment silo. Strategize resist theory of change thought leader, equal opportunity scale and impact engaging preliminary thinking compassion shared vocabulary because. Resilient; social innovation policymaker citizen-centered white paper thought leadership communities philanthropy. Synergy thought provoking, boots on the ground, revolutionary expose the truth thought provoking collaborative consumption effective think tank entrepreneur. Problem-solvers triple bottom line social enterprise, ecosystem blended value; move the needle, benefit corporation shared vocabulary bandwidth thought partnership think tank the resistance the. Data; inspire support youth then correlation innovation. Co-creation then, social capital humanitarian, co-create justice humanitarian social innovation replicable her body her rights milestones.'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-22T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-22T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build a Gallery'] ,
-        [ 'submitted', new Date('2018-08-14T12:00:00Z').toString() ],
-        ['description', 'Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-24T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-24T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
     ]
 ]
+
+// =========================================================================
+// Create the file
+// =========================================================================
+
+// console.log(allQuestionsArray.length);
+// let questionsIdArray = []
+// for(let i = 0; i < allQuestionsArray.length; i += 1){
+//     questionsIdArray.push(uuidv1())
+// }
+// // console.log(questionsIdArray);
+// questionsIdArray = JSON.stringify(questionsIdArray)
+// fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsIdArray.json`, questionsIdArray, 'utf8')
+
+// =========================================================================
+
+if(currentIdsForInterviewQuestions.length === allQuestionsArray.length){
+    console.log('Then it is true!');
+}
+else{
+    let questionsIdArray = []
+    for(let i = 0; i < allQuestionsArray.length; i += 1){
+        questionsIdArray.push(uuidv1())
+    }
+    questionsIdArray = JSON.stringify(questionsIdArray)
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsIdArray.json`, questionsIdArray, 'utf8')
+}
+
+
 
 function buildJSONStringForLessonOutput(questionArray, questionTable){
     let string = {
@@ -89,7 +104,7 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
             }
         }
         // ID      
-        tempObj['PutRequest']['Item'][questionArray[i][0][0]] = { "S": uuidv1()};
+        tempObj['PutRequest']['Item'][questionArray[i][0][0]] = { "S": uuidv1() };
         // console.log('GenId', uuidv1());
         // Title
         tempObj['PutRequest']['Item'][questionArray[i][1][0]] = { "S": questionArray[i][1][1]};
