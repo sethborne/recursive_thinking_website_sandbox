@@ -3,8 +3,22 @@ let AWS = require('aws-sdk');
 let util = require('util');
 const uuidv1 = require('uuid/v1');
 
-let dateFunction = require('../all_functions/all_functions.js');
+let allFunctions = require('../all_functions/all_functions.js');
 // console.log('in question', dateFunction.shiftDays('before', 45).toString());
+
+let readJSONFromUserFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfiles.json', 'utf8');
+let allUsers = JSON.parse(readJSONFromUserFile)
+// console.log(allUsers);
+// this is an array
+
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let allUsersIds = JSON.parse(readJSONFromUserIdFile)
+
+let readJSONFromLessonIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingLessonsIdArray.json', 'utf8');
+let currentIdsForLessons = JSON.parse(readJSONFromLessonIdFile)
+
+// let arrayOfUserIDs = allFunctions.makeArrayFromObjectKey(allUsers, 'userId');
+// let randomIndex = allFunctions.getRandomIndexOfArray(arrayOfUserIDs.length);
 
 const allLessonsArray = [
     // Should not show on either Lessons or Upcoming Lessons
@@ -17,80 +31,87 @@ const allLessonsArray = [
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'a', 'b', 'c' ] ],
         [ 'scheduled', false ],
-        [ 'createdAt', dateFunction.shiftDays('before', 45).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 45).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Designing with A-Frame VR'] ,
-        [ 'date',  dateFunction.shiftDays('after', 1).toString() ],
+        [ 'date',  allFunctions.shiftDays('after', 1).toString() ],
         ['description', 'Bacon ipsum dolor amet beef ribs meatloaf filet mignon tail doner. Kevin corned beef pork salami prosciutto t-bone. Tri-tip cow shank beef ball tip. Rump turducken shank, drumstick biltong tenderloin shoulder t-bone. Pork belly ball tip beef ribs swine shoulder tri-tip flank biltong. Landjaeger cow meatball bacon shank, kevin jowl turkey sausage pork chop doner. Ground round beef filet mignon, fatback bresaola ribeye shank ham hock pork loin burgdoggen strip steak sausage pork belly. Burgdoggen pastrami beef ribs brisket frankfurter chicken. Cupim beef pork sirloin pancetta strip steak, shoulder hamburger filet mignon shank chuck pastrami boudin drumstick.'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm' ] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 35).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 35).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Building a city with HTML & CSS'] ,
-        [ 'date', dateFunction.shiftDays('after', 8).toString() ],
+        [ 'date', allFunctions.shiftDays('after', 8).toString() ],
         ['description', 'Lies down . Eat a rug and furry furry hairs everywhere oh no human coming lie on counter do not get off counter demand to have some of whatever the human is cooking, then sniff the offering and walk away friends are not food the door is opening! how exciting oh, it is you, meh sleep head nudges for meow and walk away. That box? i can fit in that box if it smells like fish eat as much as you wish or meow and walk away, and sleep. Lounge in doorway. Cereal boxes make for five star accommodation lie in the sink all day. Spill litter box, scratch at owner, destroy all furniture, especially couch going to catch the red dot today going to catch the red dot today take a big fluffing crap and spill litter box, scratch at owner, destroy all furniture, especially couch leave hair on clothes.'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l'] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 20).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 20).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Building a calculator with HTML, CSS & JavaScript'] ,
-        [ 'date', dateFunction.shiftDays('after', 15).toString() ],
+        [ 'date', allFunctions.shiftDays('after', 15).toString() ],
         ['description', 'Ice cream biscuit chocolate. Gingerbread gummi bears macaroon marshmallow topping. Gummies tiramisu croissant cupcake cake sweet roll oat cake oat cake gummies. Topping carrot cake marzipan soufflé. Cookie bonbon chocolate bar powder macaroon cheesecake. Jujubes gingerbread powder topping caramels toffee lollipop. Croissant cupcake cake cotton candy cheesecake soufflé. Powder tart halvah. Marshmallow tiramisu oat cake gummi bears halvah halvah. Lollipop lollipop marshmallow. Jelly oat cake candy croissant cupcake jujubes topping. Biscuit tootsie roll sweet. Croissant sugar plum donut marzipan. Pudding danish donut chocolate marzipan croissant wafer pastry danish. Pie fruitcake fruitcake oat cake sugar plum. Cake cake jelly-o'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o' ] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 5).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 5).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Building a timer with HTML, CSS & JavaScript'] ,
-        [ 'date', dateFunction.shiftDays('after', 22).toString() ],
+        [ 'date', allFunctions.shiftDays('after', 22).toString() ],
         ['description', 'You do not frighten us, English pig-dogs! Go and boil your bottoms, sons of a silly person! I blow my nose at you, so-called Ah-thoor Keeng, you and all your silly English K-n-n-n-n-n-n-n-niggits! Camelot! I do not want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time! Why do you think that she is a witch? Shut up! Will you shut up?! Now, look here, my good man. Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. You can not expect to wield supreme power just because some watery tart threw a sword at you!'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n'] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 15).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 15).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Building a website with HTML, CSS & JavaScript'] ,
-        [ 'date', dateFunction.shiftDays('after', 29).toString() ],
+        [ 'date', allFunctions.shiftDays('after', 29).toString() ],
         ['description', 'Anytime you learn something your time and energy are not wasted. There are no mistakes. You can fix anything that happens. Let your imagination be your guide. Almost everything is going to happen for you automatically - you do not have to spend any time working or worrying. How do you make a round circle with a square knife? That is your challenge for the day. Every day I learn. Let us make a nice big leafy tree. And just raise cain. I sincerely wish for you every possible joy life could bring. Every single thing in the world has its own personality - and it is up to you to make friends with the little rascals. We do not really know where this goes - and I am not sure we really care. Use what happens naturally, do not fight it.'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p' ] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 10).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 10).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
         [ 'title', 'Building a web application with HTML, CSS & JavaScript'] ,
-        [ 'date', dateFunction.shiftDays('after', 36).toString() ],
+        [ 'date', allFunctions.shiftDays('after', 36).toString() ],
         ['description', 'Bicycle rights pug offal waistcoat iceland meggings affogato jianbing microdosing VHS shaman cold-pressed pop-up. Asymmetrical yr authentic distillery. Hexagon small batch jean shorts, wayfarers DIY cray pickled brooklyn shabby chic literally. Pug fam put a bird on it, drinking vinegar synth tacos plaid man braid leggings. Waistcoat pinterest skateboard street art tousled pok pok trust fund, dreamcatcher affogato. Pabst whatever swag cred, pug tbh humblebrag meditation pok pok. Cardigan small batch vape taxidermy. Raw denim prism stumptown direct trade keffiyeh dreamcatcher messenger bag brunch vexillologist truffaut salvia actually artisan viral. Meh banh mi squid copper mug. Readymade live-edge keytar meditation shaman umami fashion axe godard tacos everyday carry you probably have not heard of them gastropub 90s mixtape organic.'],
         [ 'lessonTaughtBy', [] ],
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'z', 'y', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l' ] ],
         [ 'scheduled', true ],
-        [ 'createdAt', dateFunction.shiftDays('before', 25).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 25).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
@@ -101,8 +122,9 @@ const allLessonsArray = [
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'a', 'b', 'c', 'd', 'e', 'f' ] ],
         [ 'scheduled', false ],
-        [ 'createdAt', dateFunction.shiftDays('before', 5).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 5).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
@@ -113,8 +135,9 @@ const allLessonsArray = [
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'a', 'b', 'c', 'd' ] ],
         [ 'scheduled', false ],
-        [ 'createdAt', dateFunction.shiftDays('before', 10).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 10).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
@@ -125,8 +148,9 @@ const allLessonsArray = [
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i' ] ],
         [ 'scheduled', false ],
-        [ 'createdAt', dateFunction.shiftDays('before', 15).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 15).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ],
     [
         [ 'Id' ],
@@ -137,10 +161,39 @@ const allLessonsArray = [
         [ 'lessonAttendees', []],
         [ 'lessonVotes', [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ] ],
         [ 'scheduled', false ],
-        [ 'createdAt', dateFunction.shiftDays('before', 20).toString() ],
-        [ 'updatedAt' ]
+        [ 'createdAt', allFunctions.shiftDays('before', 20).toString() ],
+        [ 'updatedAt' ],
+        [ '_lessonCreatedBy']
     ]
 ]
+
+// =========================================================================
+// Create the file
+// =========================================================================
+
+// console.log(allLessonsArray.length);
+// let lessonsIdArray = []
+// for(let i = 0; i < allLessonsArray.length; i += 1){
+//     lessonsIdArray.push(uuidv1())
+// }
+// // console.log(lessonIdArray);
+// lessonsIdArray = JSON.stringify(lessonsIdArray)
+// fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingLessonsIdArray.json`, lessonsIdArray, 'utf8')
+
+// =========================================================================
+
+
+if(currentIdsForLessons.length === allLessonsArray.length){
+    console.log('Then it is true!');
+}
+else{
+    let lessonsIdArray = []
+    for(let i = 0; i < allLessonsArray.length; i += 1){
+        lessonsIdArray.push(uuidv1())
+    }
+    lessonsIdArray = JSON.stringify(lessonsIdArray)
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingLessonsIdArray.json`, lessonsIdArray, 'utf8')
+}
 
 function buildJSONStringForLessonOutput(lessonArray, lessonTable){
     let JSONString = {
@@ -155,9 +208,14 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
                 }
             }
         }
+        // _lessonCreatedBy - 10
+        // what if we set it to the value of a random index of the allUser
+        // let arrayOfUserIDs = allFunctions.makeArrayFromObjectKey(allUsers, 'userId');
+        let randomIndexCreatedBy = allFunctions.getRandomIndexOfArray(allUsersIds.length);
+        tempObj['PutRequest']['Item'][lessonArray[i][10][0]] = { "S": allUsersIds[randomIndexCreatedBy]['userId']};
         // ID
         // tempObj['PutRequest']['Item'][lessonArray[i][0][0]] = { "S": lessonArray[i][0][1]};       
-        tempObj['PutRequest']['Item'][lessonArray[i][0][0]] = { "S": uuidv1()};
+        tempObj['PutRequest']['Item'][lessonArray[i][0][0]] = { "S": currentIdsForLessons[i]};
         // console.log('GenId', uuidv1());
         // Title
         tempObj['PutRequest']['Item'][lessonArray[i][1][0]] = { "S": lessonArray[i][1][1]};
@@ -166,8 +224,34 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // Description
         tempObj['PutRequest']['Item'][lessonArray[i][3][0]] = { "S": lessonArray[i][3][1]};
         // lessonTaughtByArray
-        tempObj['PutRequest']['Item'][lessonArray[i][4][0]] = { "L": lessonArray[i][4][1]};        
+        // This can not be the user who made the lesson
+        let filteredPotentialTeachers = allUsers.filter(user => user.userId !== allUsers[randomIndexCreatedBy]['userId'])
+        // get array of unique users
+        let taughtByArray = allFunctions.getArrayOfValuesAtAFixedLength(filteredPotentialTeachers, 2)
+        // console.log('taughtbyArray', taughtByArray);
+        // from this array - format it for Dynamo
+        let taughtByUserArray = [];
+        for(let t = 0; t < taughtByArray.length; t += 1){
+            // console.log(t);
+            let tempString = {
+                "S": taughtByArray[t]
+            }
+            // console.log(tempString);
+            taughtByUserArray.push(tempString)
+        }
+        // console.log('push', taughtByUserArray.length);
+        tempObj['PutRequest']['Item'][lessonArray[i][4][0]] = { "L": taughtByUserArray};        
         // lessonAttendees
+        // from all users filter out the 
+        let lessonAttendeesArray = [...taughtByArray];
+        // console.log('lessonAttend', lessonAttendeesArray);
+        // for(let i = 0; i < allUsers.length; i += 1){
+            // console.log('taught', taughtByArray.length);
+            // console.log(allUsers[i]['userId'] === taughtByArray.find(item => item === allUsers[i]['userId']));
+        // }
+        // let filterOutTeachersArray = allUsers.filter(allItem => console.log(allItem))
+        // allItem.userId === taughtByArray.find(item => item === allItem.userId
+        // console.log(filterOutTeachersArray.length);
         tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": lessonArray[i][5][1]};              
         // lessonVotes
         let lessonVotesArray = [];
@@ -176,10 +260,8 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
             let tempObj = {
                 "S": `${lessonArray[i][6][1][v]}`
             }
-            // console.log(tempObj);
             lessonVotesArray.push(tempObj)
         }
-        // console.log(lessonVotesArray);
         // tempObj['PutRequest']['Item'][lessonArray[i][6][0]] = { "L": lessonArray[i][6][1]};
         tempObj['PutRequest']['Item'][lessonArray[i][6][0]] = { "L": lessonVotesArray};
         // scheduled
@@ -187,12 +269,13 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // createdAt
         tempObj['PutRequest']['Item'][lessonArray[i][8][0]] = { "S": lessonArray[i][8][1]};
         // updatedAt
-        tempObj['PutRequest']['Item'][lessonArray[i][9][0]] = { "S": lessonArray[i][8][1]};        
+        tempObj['PutRequest']['Item'][lessonArray[i][9][0]] = { "S": lessonArray[i][8][1]}; 
+        
         JSONString[lessonTable].push(tempObj)
     }
     // console.log(JSONString);
     JSONString = JSON.stringify(JSONString)
-    console.log(JSONString);
+    // console.log(JSONString);
     fs.writeFileSync(`../../recursive_thinking_server/db_fill/${lessonTable}.json`, JSONString, 'utf8')
     let readLessonObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${lessonTable}.json`, 'utf8');
     let parseReadLessonObj = JSON.parse(readLessonObj)
