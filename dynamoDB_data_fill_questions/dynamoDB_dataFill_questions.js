@@ -121,6 +121,7 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
         // updatedAt
         tempObj['PutRequest']['Item'][questionArray[i][7][0]] = { "S": questionArray[i][7][1]};        
         // _createdByUser
+        // we need a random 
         // tempObj['PutRequest']['Item'][questionArray[i][8][0]] = { "S": ""};              
         string[questionTable].push(tempObj)
     }
