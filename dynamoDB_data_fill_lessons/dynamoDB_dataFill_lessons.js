@@ -12,7 +12,7 @@ let allUsers = JSON.parse(readJSONFromUserFile)
 // this is an array
 
 let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
-let allUsersIds = JSON.parse(readJSONFromUserIdFile)
+let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
 
 let readJSONFromLessonIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingLessonsIdArray.json', 'utf8');
 let currentIdsForLessons = JSON.parse(readJSONFromLessonIdFile)
@@ -211,8 +211,8 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // _lessonCreatedBy - 10
         // what if we set it to the value of a random index of the allUser
         // let arrayOfUserIDs = allFunctions.makeArrayFromObjectKey(allUsers, 'userId');
-        let randomIndexCreatedBy = allFunctions.getRandomIndexOfArray(allUsersIds.length);
-        tempObj['PutRequest']['Item'][lessonArray[i][10][0]] = { "S": allUsersIds[randomIndexCreatedBy]['userId']};
+        let randomIndexCreatedBy = allFunctions.getRandomIndexOfArray(currentIdsForUsers.length);
+        tempObj['PutRequest']['Item'][lessonArray[i][10][0]] = { "S": currentIdsForUsers[randomIndexCreatedBy]};
         // ID
         // tempObj['PutRequest']['Item'][lessonArray[i][0][0]] = { "S": lessonArray[i][0][1]};       
         tempObj['PutRequest']['Item'][lessonArray[i][0][0]] = { "S": currentIdsForLessons[i]};
@@ -226,8 +226,10 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // lessonTaughtByArray
         // This can not be the user who made the lesson
         let filteredPotentialTeachers = allUsers.filter(user => user.userId !== allUsers[randomIndexCreatedBy]['userId'])
+        // make array of just user ids
+        let filteredPotentialTeachersIds = allFunctions.makeArrayFromObjectKey(filteredPotentialTeachers, 'userId')
         // get array of unique users
-        let taughtByArray = allFunctions.getArrayOfValuesAtAFixedLength(filteredPotentialTeachers, 2)
+        let taughtByArray = allFunctions.getArrayOfValuesAtAFixedLength(filteredPotentialTeachersIds, 2)
         // console.log('taughtbyArray', taughtByArray);
         // from this array - format it for Dynamo
         let taughtByUserArray = [];
@@ -244,14 +246,7 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // lessonAttendees
         // from all users filter out the 
         let lessonAttendeesArray = [...taughtByArray];
-        // console.log('lessonAttend', lessonAttendeesArray);
-        // for(let i = 0; i < allUsers.length; i += 1){
-            // console.log('taught', taughtByArray.length);
-            // console.log(allUsers[i]['userId'] === taughtByArray.find(item => item === allUsers[i]['userId']));
-        // }
-        // let filterOutTeachersArray = allUsers.filter(allItem => console.log(allItem))
-        // allItem.userId === taughtByArray.find(item => item === allItem.userId
-        // console.log(filterOutTeachersArray.length);
+        // still need to put random amount here
         tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": lessonArray[i][5][1]};              
         // lessonVotes
         let lessonVotesArray = [];
