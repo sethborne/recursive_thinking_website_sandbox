@@ -3,123 +3,142 @@ let AWS = require('aws-sdk');
 let util = require('util');
 const uuidv1 = require('uuid/v1');
 
+let allFunctions = require('../all_functions/all_functions.js');
+
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
+console.log(currentIdsForUsers.length);
+
+let readJSONFromInterviewQuestionsIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsIdArray.json', 'utf8');
+let currentIdsForInterviewQuestions = JSON.parse(readJSONFromInterviewQuestionsIdFile)
+console.log(currentIdsForInterviewQuestions.length);
+
+let readJSONFromInterviewQuestionsAnswersIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsAnswersIdArray.json', 'utf8');
+let currentIdsForInterviewQuestionsAnswers = JSON.parse(readJSONFromInterviewQuestionsAnswersIdFile)
+console.log(currentIdsForInterviewQuestionsAnswers.length);
+
 const allAnswersArray = [
     [
         [ 'Id' ],
-        [ 'title', 'I'],
-        [ 'submitted', new Date('2018-08-14T12:00:00Z').toString() ],
-        ['description', 'Diversify kpis. We need to socialize the comms with the wider stakeholder community even dead cats bounce. Core competencies not the long pole in my tent. We have got to manage that low hanging fruit show pony quick win I just wanted to give you a heads-up can we align on lunch orders. We need to touch base off-line before we fire the new ux experience drop-dead date, but strategic fit, yet thought shower lean into that problem high turnaround rate. Future-proof high turnaround rate today shall be a cloudy day, thanks to blue sky thinking, we can now deploy our new ui to the cloud , nor can I just chime in on that one.'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-14T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-14T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build An Accordion'] ,
-        [ 'submitted', new Date('2018-08-16T12:00:00Z').toString() ],
-        ['description', 'Quarter killick gally reef sutler quarterdeck tack aye lookout Pieces of Eight. Heave down Yellow Jack scuttle league stern jack boatswain cog lee ahoy. Capstan Sea Legs lass booty strike colors spirits hardtack pink reef crack Jennys tea cup. Quarter deadlights pink yo-ho-ho fore run a rig overhaul lateen sail hogshead lookout. Lee fluke fathom Pieces of Eight sheet Sail ho ye six pounders pink pirate. Chase broadside cable reef sails gabion salmagundi cutlass fathom ho sheet. Scurvy Nelsons folly sheet tender cable American Main red ensign hogshead dance the hempen jig ahoy. Boom pressgang Sail ho reef sails coxswain piracy bilge water port sheet killick. Knave Jack Ketch deadlights clap of thunder scurvy crimp marooned fluke Buccaneer lee.'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-16T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-16T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build a Modal'] ,
-        [ 'submitted', new Date('2018-08-18T12:00:00Z').toString() ],
-        ['description', 'Stirred by starlight. Corpus callosum great turbulent clouds, from which we spring brain is the seed of intelligence concept of the number one vastness is bearable only through love. Decipherment. Emerged into consciousness? Rings of Uranus courage of our questions white dwarf tesseract, Drake Equation Flatland, cosmos inconspicuous motes of rock and gas hearts of the stars the ash of stellar alchemy, emerged into consciousness. Made in the interiors of collapsing stars Sea of Tranquility realm of the galaxies. Of brilliant syntheses. Tingling of the spine with pretty stories for which there is little good evidence. Cosmic fugue at the edge of forever a billion trillion, across the centuries galaxies with pretty stories for which there is little good evidence, trillion, galaxies, the carbon in our apple pies quasar, permanence of the stars at the edge of forever billions upon billions rogue.'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-18T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-18T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build a Gallery'] ,
-        [ 'submitted', new Date('2018-08-20T12:00:00Z').toString() ],
-        ['description', 'You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I do not know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I am breaking now. We said we would say it was the snow that killed the other two, but it was not. Nature is lethal but it does not hold a candle to man. Look, just because I do not be giving no man a foot massage do not make it right for Marsellus to throw Antwone into a glass motherfucking house, fucking up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, because I will kill the motherfucker, know what I am saying'],
-        [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-20T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-20T12:00:00Z').toString() ],
-        [ '_createdByUser' ]
-    ],
-    [
-        [ 'Id' ],
-        [ 'title', 'Build a JS Jukebox'] ,
+        [ 'title', 'First Answer to Question'],
         [ 'submitted', new Date('2018-08-22T12:00:00Z').toString() ],
-        ['description', 'Social innovation, collaborative cities corporate social responsibility, innovation fairness resilient state of play social return on investment silo. Strategize resist theory of change thought leader, equal opportunity scale and impact engaging preliminary thinking compassion shared vocabulary because. Resilient; social innovation policymaker citizen-centered white paper thought leadership communities philanthropy. Synergy thought provoking, boots on the ground, revolutionary expose the truth thought provoking collaborative consumption effective think tank entrepreneur. Problem-solvers triple bottom line social enterprise, ecosystem blended value; move the needle, benefit corporation shared vocabulary bandwidth thought partnership think tank the resistance the. Data; inspire support youth then correlation innovation. Co-creation then, social capital humanitarian, co-create justice humanitarian social innovation replicable her body her rights milestones.'],
+        ['description', 'Yeah, but you\'re uh, you\'re so, you\'re so thin. That\'s a Florence Nightingale effect. It happens in hospitals when nurses fall in love with their patients. Go to it, kid. I\'m telling the truth, Doc, you gotta believe me. George. George. What do you mean you\'ve seen this, it\'s brand new. Marty, one rejection isn\'t the end of the world. Breakfast. Okay, that\'s enough. Now stop the microphone. I\'m sorry fellas. I\'m afraid you\'re just too darn loud. Next, please. Where\'s the next group, please. It\'s about the future, isn\'t it? There, there, now, just relax. You\'ve been asleep for almost nine hours now.'],
         [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-22T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-22T12:00:00Z').toString() ],
+        [ 'createdAt', new Date('2018-08-22T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-08-22T12:00:00Z').toString() ],
+        [ 'answersQuestion'],
         [ '_createdByUser' ]
     ],
     [
         [ 'Id' ],
-        [ 'title', 'Build a Gallery'] ,
-        [ 'submitted', new Date('2018-08-14T12:00:00Z').toString() ],
-        ['description', 'Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.'],
+        [ 'title', 'Second Answer to Question'] ,
+        [ 'submitted', new Date('2018-08-24T12:00:00Z').toString() ],
+        ['description', 'It\'s OK to get Rib-grease on your face, because you\'re allowing people to see that you\'re proud of these ribs.The magic Indian is a mysterious spiritual force, and we\'re going to Cathedral Rock, and that\'s the vortex of the heart.Have you urinated? Have you drained your bladder? Are you free? Because if you haven\'t it will only come out later. I\'m giving you some information that your bodily fluids may penetrate your clothing fibre\'s without warning. When you get lost in your imaginatory vagueness, your foresight will become a nimble vagrant.Did you feel that?'],
         [ 'categories', [] ],
-        [ 'answersToQuestion', []],
-        [ 'createdAt', new Date('2018-06-24T12:00:00Z').toString() ],
-        [ 'updatedAt', new Date('2018-07-24T12:00:00Z').toString() ],
+        [ 'createdAt', new Date('2018-08-24T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-08-24T12:00:00Z').toString() ],
+        [ 'answersQuestion'],
+        [ '_createdByUser' ]
+    ],
+    [
+        [ 'Id' ],
+        [ 'title', 'Third Answer to Question'] ,
+        [ 'submitted', new Date('2018-08-26T12:00:00Z').toString() ],
+        ['description', 'Soko radicchio bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic. Jícama garlic courgette coriander radicchio plantain scallion cauliflower fava bean desert raisin spring onion chicory bunya nuts. Sea lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush tomato.'],
+        [ 'categories', [] ],
+        [ 'createdAt', new Date('2018-08-26T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-08-26T12:00:00Z').toString() ],
+        [ 'answersQuestion'],
+        [ '_createdByUser' ]
+    ],
+    [
+        [ 'Id' ],
+        [ 'title', 'Fourth Answer to Question'] ,
+        [ 'submitted', new Date('2018-08-28T12:00:00Z').toString() ],
+        ['description', 'Stoked first tracks big ring, berm white room ride fatty hellflip back country gorby rail backside gear jammer smear. Yard sale huck hurl carcass drop, grunt huck table top carve Snowboard dirtbag. Manny death cookies flow switch afterbang twister OTB taco glove pillow popping ride around first tracks ripping trucks. Bomb hole flow pipe chain ring 180 Whistler. Afterbang glades 180 huckfest death cookies. 180 first tracks euro laps avie, brain bucket huck acro sucker hole fatty spin betty wheelie drop pinner. Bomb hole epic line pillow popping wheels frontside free ride air method hellflip glades titanium sucker hole bomb T-bar.'],
+        [ 'categories', [] ],
+        [ 'createdAt', new Date('2018-08-28T12:00:00Z').toString() ],
+        [ 'updatedAt', new Date('2018-08-28T12:00:00Z').toString() ],
+        [ 'answersQuestion'],
         [ '_createdByUser' ]
     ]
 ]
 
-function buildJSONStringForLessonOutput(answerArray, answerTable){
+// =========================================================================
+// Create the file
+// =========================================================================
+
+// console.log(allAnswersArray.length);
+// let answersIdArray = []
+// for(let i = 0; i < allAnswersArray.length; i += 1){
+//     answersIdArray.push(uuidv1())
+// }
+// // console.log(answersIdArray);
+// answersIdArray = JSON.stringify(answersIdArray)
+// fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsAnswersIdArray.json`, answersIdArray, 'utf8')
+
+// =========================================================================
+
+if(currentIdsForInterviewQuestionsAnswers.length === allAnswersArray.length){
+    console.log('Then it is true!');
+}
+else{
+    let answersIdArray = []
+    for(let i = 0; i < allAnswersArray.length; i += 1){
+        answersIdArray.push(uuidv1())
+    }
+    // console.log(answersIdArray);
+    answersIdArray = JSON.stringify(answersIdArray)
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsAnswersIdArray.json`, answersIdArray, 'utf8')
+}
+
+
+function buildJSONStringForAnswerOutput(answerArray, answerTable){
     let string = {
 
     }
-    string[questionTable] = []
-    for(let i = 0; i < questionArray.length; i += 1){
-        
+    string[answerTable] = []
+    for(let i = 0; i < answerArray.length; i += 1){
         let tempObj = {
             PutRequest:{
                 Item: {
                 }
             }
         }
-        // ID      
-        tempObj['PutRequest']['Item'][questionArray[i][0][0]] = { "S": uuidv1()};
-        // console.log('GenId', uuidv1());
-        // Title
-        tempObj['PutRequest']['Item'][questionArray[i][1][0]] = { "S": questionArray[i][1][1]};
-        // Submitted
-        tempObj['PutRequest']['Item'][questionArray[i][2][0]] = { "S": questionArray[i][2][1]};
-        // Description
-        tempObj['PutRequest']['Item'][questionArray[i][3][0]] = { "S": questionArray[i][3][1]};
+        // Id      
+        tempObj['PutRequest']['Item'][answerArray[i][0][0]] = { "S": currentIdsForInterviewQuestionsAnswers[i]};
+        // title
+        tempObj['PutRequest']['Item'][answerArray[i][1][0]] = { "S": answerArray[i][1][1]};
+        // date submitted
+        tempObj['PutRequest']['Item'][answerArray[i][2][0]] = { "S": answerArray[i][2][1]};
+        // description
+        tempObj['PutRequest']['Item'][answerArray[i][3][0]] = { "S": answerArray[i][3][1]};
         // Categories
-        tempObj['PutRequest']['Item'][questionArray[i][4][0]] = { "L": questionArray[i][4][1]};        
-        // AnswersToQuestion
-        tempObj['PutRequest']['Item'][questionArray[i][5][0]] = { "L": questionArray[i][5][1]};
+        tempObj['PutRequest']['Item'][answerArray[i][4][0]] = { "L": answerArray[i][4][1]};        
         // createdAt
-        tempObj['PutRequest']['Item'][questionArray[i][6][0]] = { "S": questionArray[i][6][1]};
+        tempObj['PutRequest']['Item'][answerArray[i][6][0]] = { "S": answerArray[i][6][1]};
         // updatedAt
-        tempObj['PutRequest']['Item'][questionArray[i][7][0]] = { "S": questionArray[i][7][1]};        
+        tempObj['PutRequest']['Item'][answerArray[i][7][0]] = { "S": answerArray[i][7][1]};        
         // _createdByUser
-        // tempObj['PutRequest']['Item'][questionArray[i][8][0]] = { "S": ""};              
-        string[questionTable].push(tempObj)
+        tempObj['PutRequest']['Item'][answerArray[i][8][0]] = { "S": " "};              
+        // answersQuestion
+        // tempObj['PutRequest']['Item'][answerArray[i][5][0]] = { "L": answerArray[i][5][1]};
+        string[answerTable].push(tempObj)
     }
     // console.log(string);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, JSONString, 'utf8')
-    let readQuestionObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, 'utf8');
-    let parseReadQuestionObj = JSON.parse(readQuestionObj)
-    let questionObj = []
-    for(let item = 0; item < parseReadQuestionObj['RecursiveThinkingInterviewQuestions'].length; item += 1){
-        let temp = AWS.DynamoDB.Converter.unmarshall(parseReadQuestionObj['RecursiveThinkingInterviewQuestions'][item]['PutRequest']['Item']);
-        questionObj.push(temp)
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, JSONString, 'utf8')
+    let readAnswerObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, 'utf8');
+    let parseReadAnswerObj = JSON.parse(readAnswerObj)
+    let answerObj = []
+    for(let item = 0; item < parseReadAnswerObj['RecursiveThinkingInterviewQuestionsAnswers'].length; item += 1){
+        let temp = AWS.DynamoDB.Converter.unmarshall(parseReadAnswerObj['RecursiveThinkingInterviewQuestionsAnswers'][item]['PutRequest']['Item']);
+        answerObj.push(temp)
     }
-    questionObj = JSON.stringify(questionObj)
-    fs.writeFileSync(`../dynamoDB_mock_data_returns/${questionTable}.json`, questionObj, 'utf8')
+    answerObj = JSON.stringify(answerObj)
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/${answerTable}.json`, answerObj, 'utf8')
 }
 
-buildJSONStringForLessonOutput(allAnswersArray, 'RecursiveThinkingInterviewQuestionsAnswers')
+buildJSONStringForAnswerOutput(allAnswersArray, 'RecursiveThinkingInterviewQuestionsAnswers')
 
