@@ -30,24 +30,19 @@ module.exports = {
         let randomNumber = Math.floor(Math.random()*(max-min + 1)+ min)
         return randomNumber;
     },
+    getArrayOfValuesAtAVariableLength: function(array, maxValsInArray, minValsInArray){
+        
+    },
+    // if you are using this - you should have already used makeArrayFromObjectKey
     getArrayOfValuesAtAFixedLength: function(array, maxValsInArray){
-        // console.log('at', array);
-        // console.log(maxValsInArray);
-        // make a random number of taught by
-        maxValsInArray = this.getRandomNumber(maxValsInArray, 1)
-        // console.log(maxValsInArray);
         let returnArray = [];
         for(let i = 0; i < maxValsInArray; i += 1){
-            // console.log(i);
-            // get an index
             let index = this.getRandomIndexOfArray(array.length);
-            let tempUserId = array[index]['userId']
-            // console.log(tempUserId);
+            let tempUserId = array[index]
             returnArray.push(tempUserId)
-            // console.log(returnArray);
-            array = array.filter(user => user.userId !== tempUserId)
+            array = array.filter(item => item !== tempUserId)
         }
-        // console.log('ret: ', returnArray);
+        console.log('ret: ', returnArray);
         return returnArray;
     },
     shiftDays: function(timeShiftText, increment){
