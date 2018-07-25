@@ -12,6 +12,7 @@ module.exports = {
     },
     // getRandomIndex of Array should always accept the full array length...don't sub...
     getRandomIndexOfArray: function(arrayLength, min){
+        // console.log(arrayLength);
         let randomIndex = this.getRandomNumberForIndex(arrayLength, min)
         return randomIndex;
     },
