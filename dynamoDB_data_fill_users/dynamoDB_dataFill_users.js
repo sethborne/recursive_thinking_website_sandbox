@@ -3,16 +3,20 @@ let AWS = require('aws-sdk');
 let util = require('util');
 const uuidv1 = require('uuid/v1');
 
-let dateFunction = require('../all_functions/all_functions.js');
-// console.log('in question', dateFunction.shiftDays('before', 45).toString());
+let allFunctions = require('../all_functions/all_functions.js');
+// console.log('in question', allFunctions.shiftDays('before', 45).toString());
 
 let readJSONFromLessonFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingLessons.json', 'utf8');
 // console.log(readJSONFromLessonFile);
 let allLessons = JSON.parse(readJSONFromLessonFile);
-console.log('allLessons', allLessons);
+// console.log('allLessons', allLessons);
 
 let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
+
+let readJSONFromRankIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingRanksIdArray.json', 'utf8');
+let currentIdsForRanks = JSON.parse(readJSONFromRankIdFile)
+// console.log(currentIdsForRanks);
 
 // 1 yr -  365
 // 2 yr -  760
@@ -46,14 +50,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1825).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1825).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Chief' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 240).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ], 
     [
@@ -78,14 +82,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 900).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 900).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Presidente' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 240).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -110,14 +114,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1500).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1500).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Presidente' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 500).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 500).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -142,14 +146,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1250).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1250).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'King' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 600).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -174,14 +178,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1600).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1600).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Maestro' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 400).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 400).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -206,14 +210,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 100).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 100).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Maestro' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 50).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 50).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -238,14 +242,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1250).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1250).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Rookie' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 250).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 250).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -270,14 +274,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1200).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1200).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Captain' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 120).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 120).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -302,14 +306,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 2000).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 2000).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'My Captain' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 600).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -334,14 +338,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 800).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 800).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'My Captain' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 230).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 230).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -366,14 +370,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1370).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1370).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'My Captain' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 420).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 420).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -398,14 +402,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 3420).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 3420).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', 'Padawan' ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 358).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 358).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -430,14 +434,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1985).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1985).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 85).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 85).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -462,14 +466,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1640).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1640).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 164).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -494,14 +498,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1640).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1640).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 164).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -526,14 +530,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1234).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1234).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 123).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 123).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -551,21 +555,21 @@ const allUsersArray = [
         [ 'linkedin', emptyString ],
         [ 'portfolioWebsite', 'https://en.wikipedia.org/wiki/Fox_Mulder' ],
         [ 'resume', emptyString ],
-        [ 'bio', 'Scully, your\'re not going to believe this. Something Weird. A UFO Party. I have a life. I saw Elvis in a potato chip once. Whatever tape you found in that VCR, it isn\'t mine. I scream, you scream, we all scream for nonfat Tofutti rice dreamsicles. You ever seen a UFO in these parts? Before anyone passes judgement, may I remind you, we are in the Artic. Hey, Scully, do you think you could ever cannibalize someone? Well, not if drawsting pants come back into style. I think it\'s remotely plausible that someone might think you\'re hot. We found out you used to be a dog-faced boy' ],
+        [ 'bio', 'Scully, your\'re not going to believe this. Something Weird. A UFO Party. I have a life. I saw Elvis in a potato chip once. Whatever tape you found in that VCR, it isn\'t mine. I scream, you scream, we all scream for nonfat Tofutti rice dreamsicles. You ever seen a UFO in these parts? Before anyone passes judgement, may I remind you, we are in the Artic. Hey, Scully, do you think you could ever cannibalize someone? Well, not if drawsting pants come back into style. I think it\'s remotely plausible that someone might think you\'re hot. We found out you used to be a dog-faced boy.' ],
         [ 'profileStatsVisits', '0' ],
         [ 'profileStatsViewGithub', '0' ],
         [ 'profileStatsViewCodePen', '0' ],
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 4242).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 4242).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 424).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 424).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -590,14 +594,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1906).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1906).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 190).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 190).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -622,14 +626,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1936).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1936).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 136).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 136).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -654,14 +658,14 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1940).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1940).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 194).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 194).toString() ],
         [ 'updatedAt' ]
     ],
     [
@@ -686,19 +690,17 @@ const allUsersArray = [
         [ 'profileStatsViewPortfolio', '0' ],
         [ 'profileStatsViewLinkedIn', '0' ],
         [ 'profileStatsViewResume', '0' ],
-        [ 'experience', dateFunction.shiftDays('before', 1944).toString()],
+        [ 'experience', allFunctions.shiftDays('before', 1944).toString()],
         [ 'timeWithRT' ],
-        [ 'rank', emptyString ],
+        [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonsAttending', [] ],
-        [ 'createdAt', dateFunction.shiftDays('before', 944).toString() ],
+        [ 'createdAt', allFunctions.shiftDays('before', 944).toString() ],
         [ 'updatedAt' ]
     ]
 ]
-
-
 
 // =========================================================================
 // Create the file
@@ -790,7 +792,11 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // timeWithRT
         tempObj['PutRequest']['Item'][userArray[i][21][0]] = { "S": userArray[i][27][1]};
         // rank
-        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": userArray[i][22][1]};        
+        // we'll want to ref in rank data, then call for a random index of that array
+        let randomArrayIndex = allFunctions.getRandomIndexOfArray(currentIdsForRanks.length);
+        // console.log('Rando', randomArrayIndex);
+        // currentIdsForRanks
+        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": currentIdsForRanks[randomArrayIndex]};        
         // skillsProfessional
         tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "L": userArray[i][23][1]};
         // skillsSoftware - 25 [24]
@@ -798,6 +804,17 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // skillsLanguages
         tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": userArray[i][25][1]};
         // lessonsAttending
+        // get lessons
+        // if current userId being constructed = found in lesson
+        let response = allLessons.find(item => item.lessonTaughtBy.find(arrItem => arrItem === currentIdsForUsers[i]))
+        // console.log("i", i);
+        // if(typeof response === 'object'){
+        //     console.log(response['Id']);
+        // }
+        // else {
+        //     console.log('not found');
+        // }
+        // if(currentIdsForUsers[i])
         tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
         // createdAt
         tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "S": userArray[i][27][1]};
@@ -819,7 +836,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
     }
     // console.log(JSONString);
     JSONString = JSON.stringify(string)
-    console.log(JSONString);
+    // console.log(JSONString);
     fs.writeFileSync(`../../recursive_thinking_server/db_fill/${userTable}.json`, JSONString, 'utf8')
     let readUserObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${userTable}.json`, 'utf8');
     let parseReadUserObj = JSON.parse(readUserObj)
