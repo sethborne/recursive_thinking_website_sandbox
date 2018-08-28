@@ -106,7 +106,8 @@ const databaseAllHomeScreenQuotes = [
     }
 ]
 
-const slideHead = document.getElementById('slideHead')
+// Builds the html slide for each quote in the database. Pulls the specific name, quote and image for each slide.
+const slideshowHTML = document.getElementById('slideshowHTML')
 for (var i=0; i<databaseAllHomeScreenQuotes.length; i++){
     let quoteId = databaseAllHomeScreenQuotes[i]._quotedByUser;
     let quote = databaseAllHomeScreenQuotes[i].quote;
@@ -114,30 +115,35 @@ for (var i=0; i<databaseAllHomeScreenQuotes.length; i++){
         if (databaseAllUsers[j].Id==quoteId){
             let name = '-'+databaseAllUsers[j].name +', '+ databaseAllUsers[j].title;
             let image = databaseAllUsers[j].image;
-            slideHead.innerHTML+=`<div class="mySlides fade">
-            <section id="homePage">   
-                <section class="section famousQuote">
-                    <div class="grid gutters third u-textCenter">
-                        <div class="cell cell-center">
-                            <div class="content">
-                                <img class="imgAvatarLarge" src="${image}" alt="">
+            slideshowHTML.innerHTML+=
+            `<div class="mySlides fade">
+                <section id="homePage">   
+                    <section class="section famousQuote">
+                        <div class="grid gutters third u-textCenter">
+                            <div class="cell cell-center">
+                                <div class="content">
+                                    <img class="imgAvatarLarge" src="${image}" alt="">
+                                </div>
+                            </div>
+                            <div class="cell cell-center">
+                                <div class="content quoteAlignment">
+                                    <p>"${quote}"</p>
+                                    <br><br>
+                                    <p>${name} </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="cell cell-center">
-                            <div class="content quoteAlignment">
-                                <p>"${quote}"</p>
-                                <br><br>
-                                <p>${name} </p>
-                            </div>
-                        </div>
-                    </div>
+                    </section>
                 </section>
-            </section>
-        </div>`;
+            </div>`;
         }
     }
 }
-slideHead.innerHTML+=`<a class="prev" onclick="plusSlides(-2)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+// appends the html for the next/prev chevron buttons
+slideshowHTML.innerHTML+=
+
+`<a class="prev" onclick="plusSlides(-2)"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+
 <a class="next" onclick="plusSlides(0)"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>`;
 
 // Carousel JS\
@@ -148,15 +154,15 @@ showSlides(slideIndex);
 
 var myTimer = setInterval(showSlides, 15000);
 
-function showSlides(n){
-    // Defines the start position. Could be randomized. 
-    // clearInterval(myTimer);
-    if (slideIndex==undefined){
-        slideIndex=0;
-    }
-    n=slideIndex;
+function showSlides(n){ 
     // Gets all slide info
     let slides=document.getElementsByClassName("mySlides");
+    // randomizes where in the slide show it begins
+    let randomSlideSelector = Math.floor(Math.random()*slides.length+1);
+    if (slideIndex==undefined){
+        slideIndex=randomSlideSelector;
+    }
+    n=slideIndex;
     // Handles looping through slides
     if (n==slides.length){slideIndex=0;}
     if (n<0){slideIndex=slides.length-1;}
@@ -174,5 +180,5 @@ function plusSlides(n){
     slideIndex+=n;
     showSlides(slideIndex);
     clearInterval(myTimer);
-    myTimer = setInterval(showSlides, 5000);
+    myTimer = setInterval(showSlides, 15000);
 }
