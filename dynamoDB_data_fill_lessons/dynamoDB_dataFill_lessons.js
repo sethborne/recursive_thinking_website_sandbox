@@ -279,15 +279,20 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         })
         // console.log(lessonAttendeesArray.length);
         console.log(dbFillLessonAttendingArray);
-        tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": dbFillLessonAttendingArray};              
+        tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": dbFillLessonAttendingArray};
+                      
         // lessonVotes
         let lessonVotesArray = [];
+        let potentialUserVotesArray = [...currentIdsForUsers]
         // console.log(lessonArray[i][6][1].length);
         for(let v = 0; v < lessonArray[i][6][1].length; v += 1){
+            let randomIndex = allFunctions.getRandomIndexOfArray(potentialUserVotesArray.length)
             let tempObj = {
-                "S": `${lessonArray[i][6][1][v]}`
+                // "S": `${lessonArray[i][6][1][v]}`
+                "S": `${potentialUserVotesArray[randomIndex]}`
             }
             lessonVotesArray.push(tempObj)
+            potentialUserVotesArray.splice(randomIndex, 1)
         }
         // tempObj['PutRequest']['Item'][lessonArray[i][6][0]] = { "L": lessonArray[i][6][1]};
         tempObj['PutRequest']['Item'][lessonArray[i][6][0]] = { "L": lessonVotesArray};
