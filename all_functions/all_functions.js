@@ -43,7 +43,7 @@ module.exports = {
             returnArray.push(tempUserId)
             array = array.filter(item => item !== tempUserId)
         }
-        console.log('ret: ', returnArray);
+        // console.log('ret: ', returnArray);
         return returnArray;
     },
     shiftDays: function(timeShiftText, increment){
