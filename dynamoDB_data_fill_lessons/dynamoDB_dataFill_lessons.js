@@ -241,13 +241,45 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
             // console.log(tempString);
             taughtByUserArray.push(tempString)
         }
+        // console.log(taughtByUserArray);
         // console.log('push', taughtByUserArray.length);
         tempObj['PutRequest']['Item'][lessonArray[i][4][0]] = { "L": taughtByUserArray};        
         // lessonAttendees
-        // from all users filter out the 
-        let lessonAttendeesArray = [...taughtByArray];
-        // still need to put random amount here
-        tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": lessonArray[i][5][1]};              
+        // imitalize the attendees array with the teachers (they should be there!)
+        let lessonAttendeesArray = taughtByArray;
+        // currentIdsForUsers is array for users
+        let filteredPotentialAttendeesArray = [...currentIdsForUsers];
+        // console.log('Before', filteredPotentialAttendeesArray.length)
+        
+        lessonAttendeesArray.forEach(userId => {
+          // console.log(filteredPotentialAttendeesArray.findIndex(item => item == userId));
+          let potentialIndex = filteredPotentialAttendeesArray.findIndex(item => item == userId);
+          if(potentialIndex !== -1 ){
+            // console.log('Have a Valid Index');
+            filteredPotentialAttendeesArray.splice(potentialIndex, 1)
+          }
+        })
+        
+        // console.log('After', filteredPotentialAttendeesArray.length)
+        // get a random number of 1/3 of potential people
+        let randomNumberOfAttendees = Math.ceil(allFunctions.getRandomNumber(filteredPotentialAttendeesArray.length - 1) / 3)
+        console.log('Random Number of Attendees To Add', randomNumberOfAttendees);
+        
+        //decrement loop that many times
+        for(let i = 0; i < randomNumberOfAttendees; i += 1){
+          // pick a random index from the filteredattendees
+          let randomIndex = allFunctions.getRandomIndexOfArray(filteredPotentialAttendeesArray.length)
+          // then gen a tempSting of user at random index then push to attending array
+          lessonAttendeesArray.push(filteredPotentialAttendeesArray[randomIndex])
+          // now that this random user is in attendees, remove them from the filtered
+          filteredPotentialAttendeesArray.splice(randomIndex, 1)
+        }
+        let dbFillLessonAttendingArray = lessonAttendeesArray.map(item => {
+          return { "S": item };
+        })
+        // console.log(lessonAttendeesArray.length);
+        console.log(dbFillLessonAttendingArray);
+        tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": dbFillLessonAttendingArray};              
         // lessonVotes
         let lessonVotesArray = [];
         // console.log(lessonArray[i][6][1].length);
@@ -282,7 +314,8 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
     }
     lessonObj = JSON.stringify(lessonObj)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${lessonTable}.json`, lessonObj, 'utf8')
-}
+    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${lessonTable}.json`, lessonObj, 'utf8')
+  }
 
 buildJSONStringForLessonOutput(allLessonsArray, 'RecursiveThinkingLessons')
 
