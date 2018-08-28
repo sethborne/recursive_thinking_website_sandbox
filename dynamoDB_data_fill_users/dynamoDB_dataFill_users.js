@@ -5,6 +5,7 @@ const uuidv1 = require('uuid/v1');
 
 let allFunctions = require('../all_functions/all_functions.js');
 // console.log('in question', allFunctions.shiftDays('before', 45).toString());
+let arrayMethods = require('../all_functions/arrayMethods.js')
 
 let readJSONFromLessonFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingLessons.json', 'utf8');
 // console.log(readJSONFromLessonFile);
@@ -26,13 +27,20 @@ let currentIdsForRanks = JSON.parse(readJSONFromRankIdFile)
 
 let emptyString = ' '
 
+// image path setup for either front end
+// old FE
+// let picturePrefixPath = `../images/`;
+// sandbox FE
+// let picturePrefixPath = `../`
+
 const allUsersArray = [
     // Should not show on either Lessons or Upcoming Lessons
     [
         // Kevin Bacon - 1
         [ 'userId' ],
         [ 'username', 'onlySixPeopleAway'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        // [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  `avatar2.png`],
         [ 'name', 'Kevin Norwood Bacon' ],
         [ 'city', 'Philadelphia' ],
         [ 'state', 'PA' ],
@@ -64,7 +72,7 @@ const allUsersArray = [
         // Cat Lady - 2
         [ 'userId' ],
         [ 'username', 'meowmeow'] ,
-        [ 'picture',  '../images/avatar4.png'],
+        [ 'picture',  `avatar4.png`],
         [ 'name', 'Selina Kyle' ],
         [ 'city', 'Gotham' ],
         [ 'state', 'NY' ],
@@ -96,7 +104,7 @@ const allUsersArray = [
         // Cupcakes - 3
         [ 'userId' ],
         [ 'username', 'letThemEatCake'] ,
-        [ 'picture',  '../images/avatar5.png'],
+        [ 'picture',  'avatar5.png'],
         [ 'name', 'Amelia Simmons' ],
         [ 'city', 'Hartford' ],
         [ 'state', 'CT' ],
@@ -128,7 +136,7 @@ const allUsersArray = [
         // Cupcakes - 4
         [ 'userId' ],
         [ 'username', 'tablesShallBeRound'] ,
-        [ 'picture',  '../images/avatar1.png'],
+        [ 'picture',  'avatar1.png'],
         [ 'name', 'King Authur' ],
         [ 'city', 'Camelot' ],
         [ 'state', 'WA' ],
@@ -160,7 +168,7 @@ const allUsersArray = [
         // Rob Ross - 5
         [ 'userId' ],
         [ 'username', 'happyTrees4All'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Robert Ross' ],
         [ 'city', 'Daytona Beach' ],
         [ 'state', 'FL' ],
@@ -192,7 +200,7 @@ const allUsersArray = [
         // Hipster - 6
         [ 'userId' ],
         [ 'username', 'oneTallBoyToRuleThemAll'] ,
-        [ 'picture',  '../images/avatar_default.png'],
+        [ 'picture',  'avatar_default.png'],
         [ 'name', 'Sir Von Douchebag' ],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
@@ -224,7 +232,7 @@ const allUsersArray = [
         // Office Boss - 7
         [ 'userId' ],
         [ 'username', 'yeahImGonnaNeed'] ,
-        [ 'picture',  '../images/avatar3.png'],
+        [ 'picture',  'avatar3.png'],
         [ 'name', 'Bill Lumbergh' ],
         [ 'city', 'Austin' ],
         [ 'state', 'TX' ],
@@ -256,7 +264,7 @@ const allUsersArray = [
         // Dread Pirate Roberts - 8
         [ 'userId' ],
         [ 'username', 'blackbart'] ,
-        [ 'picture',  '../images/avatar_default.png'],
+        [ 'picture',  'avatar_default.png'],
         [ 'name', 'One Eyed Willy' ],
         [ 'city', 'Astoria' ],
         [ 'state', 'OR' ],
@@ -288,7 +296,7 @@ const allUsersArray = [
         // Carl - 9
         [ 'userId' ],
         [ 'username', 'theCosmostist'] ,
-        [ 'picture',  '../images/avatar1.png'],
+        [ 'picture',  'avatar1.png'],
         [ 'name', 'Carl Sagan' ],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
@@ -320,7 +328,7 @@ const allUsersArray = [
         // Sam - 10
         [ 'userId' ],
         [ 'username', 'badassMofo'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Samuel L. Jackson' ],
         [ 'city', 'Washington' ],
         [ 'state', 'D.C.' ],
@@ -352,7 +360,7 @@ const allUsersArray = [
         // Tony - 11
         [ 'userId' ],
         [ 'username', 'thebirdman'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Tony Hawk' ],
         [ 'city', 'San Diego' ],
         [ 'state', 'CA' ],
@@ -384,7 +392,7 @@ const allUsersArray = [
         // Will - 12
         [ 'userId' ],
         [ 'username', 'numberOne'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'William Thomas Riker' ],
         [ 'city', 'Nome' ],
         [ 'state', 'AK' ],
@@ -416,7 +424,7 @@ const allUsersArray = [
         // Marty - 13
         [ 'userId' ],
         [ 'username', 'timeTraveler'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Marty McFly' ],
         [ 'city', 'Hill Valley' ],
         [ 'state', 'CA' ],
@@ -448,7 +456,7 @@ const allUsersArray = [
         // Walt - 14
         [ 'userId' ],
         [ 'username', 'heisenberg'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Walter White' ],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
@@ -480,7 +488,7 @@ const allUsersArray = [
         // Saul - 15
         [ 'userId' ],
         [ 'username', 'betterCallMe'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Saul Goodman' ],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
@@ -512,7 +520,7 @@ const allUsersArray = [
         // Hodor  - 16
         [ 'userId' ],
         [ 'username', 'hodorhodor'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Hodor' ],
         [ 'city', 'Hodor' ],
         [ 'state', 'hodor' ],
@@ -544,7 +552,7 @@ const allUsersArray = [
         // Fox  - 17
         [ 'userId' ],
         [ 'username', 'iWantToBelieve'] ,
-        [ 'picture',  '../images/avatar2.png'],
+        [ 'picture',  'avatar2.png'],
         [ 'name', 'Fox Mulder' ],
         [ 'city', 'Chilmark' ],
         [ 'state', 'Massachusetts' ],
@@ -576,7 +584,7 @@ const allUsersArray = [
         // Grace  - 18
         [ 'userId' ],
         [ 'username', 'amazingGrace'] ,
-        [ 'picture',  '../images/avatar4.png'],
+        [ 'picture',  'avatar4.png'],
         [ 'name', 'Grace Brewster Murray Hopper' ],
         [ 'city', 'New York City' ],
         [ 'state', 'NY' ],
@@ -608,7 +616,7 @@ const allUsersArray = [
         // Margaret  - 19
         [ 'userId' ],
         [ 'username', 'stacksOfCode'] ,
-        [ 'picture',  '../images/avatar5.png'],
+        [ 'picture',  'avatar5.png'],
         [ 'name', 'Margaret Heafield Hamilton' ],
         [ 'city', 'Paoli' ],
         [ 'state', 'IN' ],
@@ -640,7 +648,7 @@ const allUsersArray = [
         // Chuck  - 20
         [ 'userId' ],
         [ 'username', 'roundhouseToTheFace'] ,
-        [ 'picture',  '../images/avatar1.png'],
+        [ 'picture',  'avatar1.png'],
         [ 'name', 'Carlos (Chuck) Ray Norris' ],
         [ 'city', 'Ryan' ],
         [ 'state', 'OK' ],
@@ -672,7 +680,7 @@ const allUsersArray = [
         //   - 21
         [ 'userId' ],
         [ 'username', 'crank'] ,
-        [ 'picture',  '../images/avatar3.png'],
+        [ 'picture',  'avatar3.png'],
         [ 'name', 'William Gary Busey' ],
         [ 'city', 'Goose Creek' ],
         [ 'state', 'TX' ],
@@ -803,18 +811,16 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": userArray[i][24][1]};
         // skillsLanguages
         tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": userArray[i][25][1]};
-        // lessonsAttending
+        // lessonStatus
         // get lessons
-        // if current userId being constructed = found in lesson
-        let response = allLessons.find(item => item.lessonTaughtBy.find(arrItem => arrItem === currentIdsForUsers[i]))
-        // console.log("i", i);
-        // if(typeof response === 'object'){
-        //     console.log(response['Id']);
-        // }
-        // else {
-        //     console.log('not found');
-        // }
-        // if(currentIdsForUsers[i])
+        // return an array of lessons, where the current user is in the lesson.lessonAttendingArray
+        let lessonsUserAttending = allLessons.filter(lesson => lesson.lessonAttendees.find(userAttendingId => userAttendingId === currentIdsForUsers[i]))
+        let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'title')
+        // diff arrays to get not attending
+        let lessonsUserNotYetAttending = arrayMethods.diffArrays(allLessons, lessonsUserAttending)
+        let lessonsUserNotYetAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserNotYetAttending, 'title')
+        // console.log(allLessons.length, lessonsUserAttending.length, lessonsUserNotYetAttending.length);
+        // let lessonsUserNotYetAttendingId = 
         tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
         // createdAt
         tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "S": userArray[i][27][1]};
@@ -848,6 +854,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
     }
     userObj = JSON.stringify(userObj)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${userTable}.json`, userObj, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${userTable}.json`, userObj, 'utf8')
 }
 
 buildJSONStringForUserOutput(allUsersArray, 'RecursiveThinkingDeveloperProfiles')
