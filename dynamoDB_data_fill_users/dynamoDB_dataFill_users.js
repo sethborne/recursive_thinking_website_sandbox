@@ -811,17 +811,52 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": userArray[i][24][1]};
         // skillsLanguages
         tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": userArray[i][25][1]};
-        // lessonStatus
+        // lessonStatus - object - where key is the lesson id, and it has a value of 0 (no), 1(yes), 2(maybe).  if a lesson id does not exist in status, it gets all buttons.  if it does, it gets corresponding button
+        
         // get lessons
         // return an array of lessons, where the current user is in the lesson.lessonAttendingArray
         let lessonsUserAttending = allLessons.filter(lesson => lesson.lessonAttendees.find(userAttendingId => userAttendingId === currentIdsForUsers[i]))
-        let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'title')
+        let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'Id')
         // diff arrays to get not attending
         let lessonsUserNotYetAttending = arrayMethods.diffArrays(allLessons, lessonsUserAttending)
-        let lessonsUserNotYetAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserNotYetAttending, 'title')
-        // console.log(allLessons.length, lessonsUserAttending.length, lessonsUserNotYetAttending.length);
-        // let lessonsUserNotYetAttendingId = 
-        tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
+        let lessonsUserNotYetAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserNotYetAttending, 'Id')
+        // from the not attending - lets select a random number of them (1/3 not attend, 1/3 maybe)
+        let randomNumberOfLessonsNotAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 2), 1)
+        // loop randomNumberof times, make no array
+        let lessonsUserNotAttendingId = []
+        for(let i = 0; i < randomNumberOfLessonsNotAttending; i += 1){
+          let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserNotAttendingId.length);
+          // then push that value into
+          lessonsUserNotAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
+          lessonsUserNotYetAttendingId.splice(randomIndex, 1)
+        }
+        let randomNumberOfLessonsMaybeAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 3), 1)
+        let lessonsUserMaybeAttendingId = []
+        for(let i = 0; i < randomNumberOfLessonsMaybeAttending; i += 1){
+          let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserMaybeAttendingId.length);
+          // then push that value into
+          lessonsUserMaybeAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
+          lessonsUserNotYetAttendingId.splice(randomIndex, 1)
+        }
+        // should have a smaller lessons Not Attending Array now
+        console.log(allLessons.length, "Attend: ", lessonsUserAttending.length, "Not Attend: ", lessonsUserNotAttendingId.length, "Maybe: ", lessonsUserMaybeAttendingId.length, "No Show: ", lessonsUserNotYetAttendingId.length);
+        let lessonStatusObj = {}
+        lessonsUserNotAttendingId.forEach(notAttendId => {
+          lessonStatusObj[notAttendId] = { "N": "0" }
+        })
+        lessonsUserAttendingId.forEach(attendId => {
+          lessonStatusObj[attendId] = { "N": "1"}
+        })
+        lessonsUserMaybeAttendingId.forEach(maybeAttendId => {
+          lessonStatusObj[maybeAttendId] = { "N": "2"}
+        })
+        console.log(lessonStatusObj);
+        // "M": { 
+        //   "Name": {"S": "Joe"}, 
+        //   "Age": {"N": "35"}
+        // }
+        // tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
+        tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "M": lessonStatusObj};        
         // createdAt
         tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "S": userArray[i][27][1]};
         // updatedAt - 29 [28]
