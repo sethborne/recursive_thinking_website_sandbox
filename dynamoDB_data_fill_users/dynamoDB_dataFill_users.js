@@ -40,31 +40,31 @@ const allUsersArray = [
         [ 'userId' ],
         [ 'username', 'onlySixPeopleAway'] ,
         // [ 'picture',  '../images/avatar2.png'],
-        [ 'picture',  `avatar2.png`],
+        [ 'avatar',  `avatar2.png`],
         [ 'name', 'Kevin Norwood Bacon' ],
         [ 'city', 'Philadelphia' ],
         [ 'state', 'PA' ],
         [ 'employer', 'Bacon Bros, Inc.' ],
         [ 'title', 'Dancer' ],
-        [ 'github', emptyString ],
-        [ 'codepen', emptyString ],
-        [ 'linkedin', emptyString ],
-        [ 'portfolioWebsite', 'http://www.baconbros.com' ],
-        [ 'resume', emptyString ],
+        [ 'linkGithub', emptyString ],
+        [ 'linkCodepen', emptyString ],
+        [ 'linkLinkedin', emptyString ],
+        [ 'linkPortfolioWebsite', 'http://www.baconbros.com' ],
+        [ 'linkResume', emptyString ],
         [ 'bio', 'Bacon ipsum dolor amet doner brisket jowl ground round bacon burgdoggen. Prosciutto short loin sirloin, filet mignon meatball capicola picanha rump pork belly ground round t-bone buffalo sausage swine. Ham hock jowl leberkas, bresaola chuck shoulder short loin landjaeger brisket ground round strip steak prosciutto sirloin. Shank t-bone pork belly, picanha meatloaf short ribs jerky swine turkey kevin ham hock. Sirloin hamburger short loin chicken jerky beef ribs swine shank landjaeger bacon cow.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1825).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ], 
@@ -72,7 +72,7 @@ const allUsersArray = [
         // Cat Lady - 2
         [ 'userId' ],
         [ 'username', 'meowmeow'] ,
-        [ 'picture',  `avatar4.png`],
+        [ 'avatar',  `avatar4.png`],
         [ 'name', 'Selina Kyle' ],
         [ 'city', 'Gotham' ],
         [ 'state', 'NY' ],
@@ -85,18 +85,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Bring your owner a dead bird hide when guests come over always ensure to lay down in such a manner that tail can lightly brush human\'s nose . Meeeeouw stand with legs in litter box, but poop outside so trip on catnip have a lot of grump in yourself because you can\'t forget to be grumpy and not be like king grumpy cat but chase imaginary bugs. Take a big fluffing crap headbutt owner\'s knee and take a big fluffing crap 💩 mice meowzer yet slap owner\'s face at 5am until human fills food dish use lap as chair. Stuff and things. Intently sniff hand. Lick left leg for ninety minutes, still dirty russian blue. ' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 900).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ],
@@ -104,7 +104,7 @@ const allUsersArray = [
         // Cupcakes - 3
         [ 'userId' ],
         [ 'username', 'letThemEatCake'] ,
-        [ 'picture',  'avatar5.png'],
+        [ 'avatar',  'avatar5.png'],
         [ 'name', 'Amelia Simmons' ],
         [ 'city', 'Hartford' ],
         [ 'state', 'CT' ],
@@ -117,18 +117,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Cupcake ipsum dolor sit amet. Gummies brownie halvah donut. Oat cake soufflé pastry. Gingerbread bonbon marshmallow. Danish toffee pastry. Halvah cake candy icing powder chocolate bar marzipan. Carrot cake bonbon candy canes jelly-o danish. Pudding wafer powder marshmallow. Jelly chupa chups pie pudding toffee icing gummies sweet jujubes. Powder tootsie roll tootsie roll topping bonbon bear claw chocolate. Pudding wafer powder jelly-o. Sesame snaps jelly beans cake danish jujubes chocolate bear claw bonbon sweet.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1500).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 500).toString() ],
         [ 'updatedAt' ]
     ],
@@ -136,7 +136,7 @@ const allUsersArray = [
         // Cupcakes - 4
         [ 'userId' ],
         [ 'username', 'tablesShallBeRound'] ,
-        [ 'picture',  'avatar1.png'],
+        [ 'avatar',  'avatar1.png'],
         [ 'name', 'King Authur' ],
         [ 'city', 'Camelot' ],
         [ 'state', 'WA' ],
@@ -149,18 +149,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Well, how\'d you become king, then? Listen. Strange women lying in ponds distributing swords is no basis for a system of government. Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony. You can\'t expect to wield supreme power just \'cause some watery tart threw a sword at you! I don\'t want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1250).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
@@ -168,7 +168,7 @@ const allUsersArray = [
         // Rob Ross - 5
         [ 'userId' ],
         [ 'username', 'happyTrees4All'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Robert Ross' ],
         [ 'city', 'Daytona Beach' ],
         [ 'state', 'FL' ],
@@ -181,18 +181,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'We\'ll put all the little clouds in and let them dance around and have fun. Trees cover up a multitude of sins. Let\'s put some happy trees and bushes back in here. We don\'t have anything but happy trees here. Nice little fluffy clouds laying around in the sky being lazy. Just take out whatever you don\'t want. It\'ll change your entire perspective. You can create beautiful things - but you have to see them in your mind first. There\'s nothing wrong with having a tree as a friend. Just let go - and fall like a little waterfall.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1600).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 400).toString() ],
         [ 'updatedAt' ]
     ],
@@ -200,7 +200,7 @@ const allUsersArray = [
         // Hipster - 6
         [ 'userId' ],
         [ 'username', 'oneTallBoyToRuleThemAll'] ,
-        [ 'picture',  'avatar_default.png'],
+        [ 'avatar',  'avatar_default.png'],
         [ 'name', 'Sir Von Douchebag' ],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
@@ -213,18 +213,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Paleo ugh selfies, pork belly meh sartorial narwhal cornhole offal. Quinoa distillery subway tile 90\'s green juice, bushwick shoreditch slow-carb messenger bag. Kale chips man braid church-key yuccie distillery chartreuse. Shoreditch meh heirloom echo park tumeric adaptogen literally helvetica gentrify la croix tattooed affogato roof party bushwick. Blue bottle microdosing food truck green juice keytar fashion axe vice shabby chic literally taxidermy succulents PBR&B listicle. Seitan cloud bread bicycle rights portland. Letterpress hoodie irony, pabst af pickled plaid wayfarers narwhal gastropub sriracha.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 100).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 50).toString() ],
         [ 'updatedAt' ]
     ],
@@ -232,7 +232,7 @@ const allUsersArray = [
         // Office Boss - 7
         [ 'userId' ],
         [ 'username', 'yeahImGonnaNeed'] ,
-        [ 'picture',  'avatar3.png'],
+        [ 'avatar',  'avatar3.png'],
         [ 'name', 'Bill Lumbergh' ],
         [ 'city', 'Austin' ],
         [ 'state', 'TX' ],
@@ -245,18 +245,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Push back take five, punch the tree, and come back in here with a clear head killing it. Please advise soonest run it up the flagpole, ping the boss and circle back forcing function prairie dogging, for pig in a python. What do you feel you would bring to the table if you were hired for this position knowledge is power so draw a line in the sand quick win. Baseline the procedure and samepage your department today shall be a cloudy day, thanks to blue sky thinking, we can now deploy our new ui to the cloud but productize. Upstream selling. Highlights . Table the discussion high turnaround rate but shoot me an email or streamline, yet minimize backwards overflow nor we need to start advertising on social media, optimize for search. Synergize productive mindfulness when does this sunset?' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1250).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 250).toString() ],
         [ 'updatedAt' ]
     ],
@@ -264,7 +264,7 @@ const allUsersArray = [
         // Dread Pirate Roberts - 8
         [ 'userId' ],
         [ 'username', 'blackbart'] ,
-        [ 'picture',  'avatar_default.png'],
+        [ 'avatar',  'avatar_default.png'],
         [ 'name', 'One Eyed Willy' ],
         [ 'city', 'Astoria' ],
         [ 'state', 'OR' ],
@@ -277,18 +277,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow\'s nest nipperkin grog yardarm hempen halter furl. Swab barque interloper chantey doubloon starboard grog black jack gangway rutters.<br><br>Deadlights jack lad schooner scallywag dance the hempen jig carouser broadside cable strike colors. Bring a spring upon her cable holystone blow the man down spanker Shiver me timbers to go on account lookout wherry doubloon chase. Belay yo-ho-ho keelhaul squiffy black spot yardarm spyglass sheet transom heave to.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1200).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 120).toString() ],
         [ 'updatedAt' ]
     ],
@@ -296,7 +296,7 @@ const allUsersArray = [
         // Carl - 9
         [ 'userId' ],
         [ 'username', 'theCosmostist'] ,
-        [ 'picture',  'avatar1.png'],
+        [ 'avatar',  'avatar1.png'],
         [ 'name', 'Carl Sagan' ],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
@@ -309,18 +309,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Not a sunrise but a galaxyrise prime number! Vangelis. Hundreds of thousands. Billions upon billions. Great turbulent clouds Rig Veda. Radio telescope bits of moving fluff take root and flourish, astonishment. Descended from astronomers dream of the mind\'s eye descended from astronomers courage of our questions, preserve and cherish that pale blue dot realm of the galaxies, emerged into consciousness, Drake Equation take root and flourish two ghostly white figures in coveralls and helmets are soflty dancing brain is the seed of intelligence at the edge of forever, Cambrian explosion cosmic ocean, ship of the imagination astonishment.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 2000).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
@@ -328,7 +328,7 @@ const allUsersArray = [
         // Sam - 10
         [ 'userId' ],
         [ 'username', 'badassMofo'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Samuel L. Jackson' ],
         [ 'city', 'Washington' ],
         [ 'state', 'D.C.' ],
@@ -341,18 +341,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows. Some pilots get picked and become television programs. Some don\'t, become nothing. She starred in one of the ones that became nothing. Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine. You don\'t get sick, I do.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 800).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 230).toString() ],
         [ 'updatedAt' ]
     ],
@@ -360,7 +360,7 @@ const allUsersArray = [
         // Tony - 11
         [ 'userId' ],
         [ 'username', 'thebirdman'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Tony Hawk' ],
         [ 'city', 'San Diego' ],
         [ 'state', 'CA' ],
@@ -373,18 +373,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Skate ipsum dolor sit amet, fastplant melancholy deck rock and roll. 540 invert nose blunt switch. Judo air pressure flip grind freestyle. Pogo feeble gap Video Days pump. 50-50 hang ten fakie frigid air. Frigid air bruised heel ollie rocket air. 720 g-turn hang ten sketchy Streetstyle in Tempe. Bigspin half-cab full pipe Gator cab flip. Fakie Rob Welsh wax pump nose slide. Shoveit casper pivot half-cab freestyle Streetstyle in Tempe. Bruised heel Alan Gelfand Christ air stalefish judo air handplant. Nose-bump Elissa Steamer varial shinner pump nollie. 540 birdie transition heel flip cab flip.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1370).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 420).toString() ],
         [ 'updatedAt' ]
     ],
@@ -392,7 +392,7 @@ const allUsersArray = [
         // Will - 12
         [ 'userId' ],
         [ 'username', 'numberOne'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'William Thomas Riker' ],
         [ 'city', 'Nome' ],
         [ 'state', 'AK' ],
@@ -405,18 +405,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'But the probability of making a six is no greater than that of rolling a seven. The Enterprise computer system is controlled by three primary main processor cores, cross-linked with a redundant melacortz ramistat, fourteen kiloquad interface modules. Sorry, Data. A lot of things can change in twelve years, Admiral. Fate. It protects fools, little children, and ships named "Enterprise." Travel time to the nearest starbase? When has justice ever been as simple as a rule book? I\'d like to think that I haven\'t changed those things, sir. Some days you get the bear, and some days the bear gets you. Maybe if we felt any human loss as keenly as we feel one of those close to us, human history would be far less bloody.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 3420).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 358).toString() ],
         [ 'updatedAt' ]
     ],
@@ -424,7 +424,7 @@ const allUsersArray = [
         // Marty - 13
         [ 'userId' ],
         [ 'username', 'timeTraveler'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Marty McFly' ],
         [ 'city', 'Hill Valley' ],
         [ 'state', 'CA' ],
@@ -435,20 +435,20 @@ const allUsersArray = [
         [ 'linkedin', emptyString ],
         [ 'portfolioWebsite', 'https://en.wikipedia.org/wiki/Marty_McFly' ],
         [ 'resume', emptyString ],
-        [ 'bio', 'Yeah, it\'s in the back. You too. What you got under here? That was the day I invented time travel. I remember it vividly. I was standing on the edge of my toilet hanging a clock, the porces was wet, I slipped, hit my head on the edge of the sink. And when I came to I had a revelation, a picture, a picture in my head, a picture of this. This is what makes time travel possible. The flux capacitor. I don\'t worry. this is all wrong. I don\'t know what it is but when I kiss you, it\'s like kissing my brother. I guess that doesn\'t make any sense, does it?' ],
+        [ 'bio', 'Yeah, it\'s in the back. You too. What you got under here? That was the day I invented time travel. I remember it vividly. I was standing on the edge of my toilet hanging a clock, the porces was wet, I slipped, hit my head on the edge of the sink. And when I came to I had a revelation, a avatar, a avatar in my head, a avatar of this. This is what makes time travel possible. The flux capacitor. I don\'t worry. this is all wrong. I don\'t know what it is but when I kiss you, it\'s like kissing my brother. I guess that doesn\'t make any sense, does it?' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1985).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 85).toString() ],
         [ 'updatedAt' ]
     ],
@@ -456,7 +456,7 @@ const allUsersArray = [
         // Walt - 14
         [ 'userId' ],
         [ 'username', 'heisenberg'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Walter White' ],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
@@ -469,18 +469,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Did he speak to you? Would you just answer? What things? What people? A month ago, Gus was trying to kill both of us. And now, he pulls you out of the lab and employs you as... what... a, an assistant gunman? A tough guy? Does that make any sense to you? He says he sees something in you. What kind of game is he playing. Does he think you\'re that naive? He can\'t truly think that you\'d forget... let alone Gale, let alone Victor... and all the horror that goes along with all of that. It\'s enough. This is still the best way. You go after him with a gun, you\'ll never get out of it alive.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1640).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
@@ -488,7 +488,7 @@ const allUsersArray = [
         // Saul - 15
         [ 'userId' ],
         [ 'username', 'betterCallMe'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Saul Goodman' ],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
@@ -501,18 +501,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Hand me that little thing, bin. This is the nail salon, right. I take your dirty money and I slip it into the salon\'s nice clean cash flow - that\'s called layering. Final step - integration. The revenues from the salon go to the owner - that\'s you! Your filthy drug money has been transformed into nice clean taxable income brought to you by a savvy investment in a thriving business. Yeah and if you wanna stay a criminal and not become say a convict, then maybe you should grow up and listen to your lawyer. They take every penny and you go in the can for felony tax evasion. Ouch! What was your mistake? You didn\'t launder your money! Now, you give me your money, okay that\'s called placement.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1640).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
@@ -520,7 +520,7 @@ const allUsersArray = [
         // Hodor  - 16
         [ 'userId' ],
         [ 'username', 'hodorhodor'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Hodor' ],
         [ 'city', 'Hodor' ],
         [ 'state', 'hodor' ],
@@ -533,18 +533,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Hodor! Hodor hodor, hodor hodor hodor? Hodor! HODOR! Hodor hodor, hodor hodor hodor? Hodor! Hodor hodor, hodor; hodor hodor hodor hodor? HODOR! Hodor, hodor... Hodor hodor hodor? Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor. Hodor hodor hodor? Hodor! Hodor; hodor hodor hodor hodor? Hodor hodor hodor? Hodor! Hodor hodor. HODOR! Hodor, hodor hodor, hodor? Hodor, hodor!?! Hodor hodor hodor!' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1234).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 123).toString() ],
         [ 'updatedAt' ]
     ],
@@ -552,7 +552,7 @@ const allUsersArray = [
         // Fox  - 17
         [ 'userId' ],
         [ 'username', 'iWantToBelieve'] ,
-        [ 'picture',  'avatar2.png'],
+        [ 'avatar',  'avatar2.png'],
         [ 'name', 'Fox Mulder' ],
         [ 'city', 'Chilmark' ],
         [ 'state', 'Massachusetts' ],
@@ -565,18 +565,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Scully, your\'re not going to believe this. Something Weird. A UFO Party. I have a life. I saw Elvis in a potato chip once. Whatever tape you found in that VCR, it isn\'t mine. I scream, you scream, we all scream for nonfat Tofutti rice dreamsicles. You ever seen a UFO in these parts? Before anyone passes judgement, may I remind you, we are in the Artic. Hey, Scully, do you think you could ever cannibalize someone? Well, not if drawsting pants come back into style. I think it\'s remotely plausible that someone might think you\'re hot. We found out you used to be a dog-faced boy.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 4242).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 424).toString() ],
         [ 'updatedAt' ]
     ],
@@ -584,7 +584,7 @@ const allUsersArray = [
         // Grace  - 18
         [ 'userId' ],
         [ 'username', 'amazingGrace'] ,
-        [ 'picture',  'avatar4.png'],
+        [ 'avatar',  'avatar4.png'],
         [ 'name', 'Grace Brewster Murray Hopper' ],
         [ 'city', 'New York City' ],
         [ 'state', 'NY' ],
@@ -597,18 +597,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'A ship in port is safe, but that\'s not what ships are built for. It is often easier to ask for forgiveness than to ask for permission. You don\'t manage people; you manage things. You lead people. If it\'s a good idea, go ahead and do it. It\'s much easier to apologize than it is to get permission. Leadership is a two-way street, loyalty up and loyalty down. Respect for one\'s superiors; care for one\'s crew.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1906).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 190).toString() ],
         [ 'updatedAt' ]
     ],
@@ -616,7 +616,7 @@ const allUsersArray = [
         // Margaret  - 19
         [ 'userId' ],
         [ 'username', 'stacksOfCode'] ,
-        [ 'picture',  'avatar5.png'],
+        [ 'avatar',  'avatar5.png'],
         [ 'name', 'Margaret Heafield Hamilton' ],
         [ 'city', 'Paoli' ],
         [ 'state', 'IN' ],
@@ -629,18 +629,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Looking back, we were the luckiest people in the world. There was no choice but to be pioneers; no time to be beginners. Apollo 8 comes a close second, it not equal, to Apollo 11 for the most exciting, memorable moments on the Apollo project. Looking back, we were the luckiest people in the world. There was no choice but to be pioneers; no time to be beginners. Apollo 8 comes a close second, it not equal, to Apollo 11 for the most exciting, memorable moments on the Apollo project.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1936).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 136).toString() ],
         [ 'updatedAt' ]
     ],
@@ -648,7 +648,7 @@ const allUsersArray = [
         // Chuck  - 20
         [ 'userId' ],
         [ 'username', 'roundhouseToTheFace'] ,
-        [ 'picture',  'avatar1.png'],
+        [ 'avatar',  'avatar1.png'],
         [ 'name', 'Carlos (Chuck) Ray Norris' ],
         [ 'city', 'Ryan' ],
         [ 'state', 'OK' ],
@@ -661,18 +661,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Chuck ipsum. Chuck Norris doesn’t need to swallow when eating food. Chuck Norris once kicked a baby elephant into puberty. Chuck Norris’ roundhouse kick is so powerful, it can be seen from outer space by the naked eye. Chuck Norris does not hunt because the word hunting infers the probability of failure. Chuck Norris goes killing.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1940).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 194).toString() ],
         [ 'updatedAt' ]
     ],
@@ -680,7 +680,7 @@ const allUsersArray = [
         //   - 21
         [ 'userId' ],
         [ 'username', 'crank'] ,
-        [ 'picture',  'avatar3.png'],
+        [ 'avatar',  'avatar3.png'],
         [ 'name', 'William Gary Busey' ],
         [ 'city', 'Goose Creek' ],
         [ 'state', 'TX' ],
@@ -693,18 +693,18 @@ const allUsersArray = [
         [ 'resume', emptyString ],
         [ 'bio', 'Listen to the silence. And when the silence is deafening, you\'re in the center of your own universe. Did you feel that? Look at me - I\'m not out of breath anymore! I would like to give you a backstage pass to my imagination.Go with the feeling of the nature. Take it easy. Know why you\'re here. And remember to balance your internal energy with the environment. It\'s OK to get Rib-grease on your face, because you\'re allowing people to see that you\'re proud of these ribs.' ],
         [ 'profileStatsVisits', '0' ],
-        [ 'profileStatsViewGithub', '0' ],
-        [ 'profileStatsViewCodePen', '0' ],
-        [ 'profileStatsViewPortfolio', '0' ],
-        [ 'profileStatsViewLinkedIn', '0' ],
-        [ 'profileStatsViewResume', '0' ],
+        [ 'profileStatsViewsGithub', '0' ],
+        [ 'profileStatsViewsCodePen', '0' ],
+        [ 'profileStatsViewsPortfolio', '0' ],
+        [ 'profileStatsViewsLinkedIn', '0' ],
+        [ 'profileStatsViewsResume', '0' ],
         [ 'experience', allFunctions.shiftDays('before', 1944).toString()],
         [ 'timeWithRT' ],
         [ 'rank' ],
         [ 'skillsProfessional', [] ],
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
-        [ 'lessonsAttending', [] ],
+        [ 'lessonStatus' ],
         [ 'createdAt', allFunctions.shiftDays('before', 944).toString() ],
         [ 'updatedAt' ]
     ]
@@ -759,7 +759,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][0][0]] = { "S": currentIdsForUsers[i]};
         // username
         tempObj['PutRequest']['Item'][userArray[i][1][0]] = { "S": userArray[i][1][1]};
-        // picture
+        // avatar
         tempObj['PutRequest']['Item'][userArray[i][2][0]] = { "S": userArray[i][2][1]};
         // name
         tempObj['PutRequest']['Item'][userArray[i][3][0]] = { "S": userArray[i][3][1]};
@@ -785,15 +785,15 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][13][0]] = { "S": userArray[i][13][1]};
         // profileStatsVisits - 15 [14]
         tempObj['PutRequest']['Item'][userArray[i][14][0]] = { "N": userArray[i][14][1]};
-        // profileStatsViewGithub
+        // profileStatsViewsGithub
         tempObj['PutRequest']['Item'][userArray[i][15][0]] = { "N": userArray[i][15][1]};
-        // profileStatsViewCodePen
+        // profileStatsViewsCodePen
         tempObj['PutRequest']['Item'][userArray[i][16][0]] = { "N": userArray[i][16][1]};
-        // profileStatsViewPortfolio
+        // profileStatsViewsPortfolio
         tempObj['PutRequest']['Item'][userArray[i][17][0]] = { "N": userArray[i][17][1]};        
-        // profileStatsViewLinkedIn
+        // profileStatsViewsLinkedIn
         tempObj['PutRequest']['Item'][userArray[i][18][0]] = { "N": userArray[i][18][1]};
-        // profileStatsViewResume - 20 [19]
+        // profileStatsViewsResume - 20 [19]
         tempObj['PutRequest']['Item'][userArray[i][19][0]] = { "N": userArray[i][19][1]};
         // experience
         tempObj['PutRequest']['Item'][userArray[i][20][0]] = { "S": userArray[i][20][1]};
@@ -802,8 +802,6 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // rank
         // we'll want to ref in rank data, then call for a random index of that array
         let randomArrayIndex = allFunctions.getRandomIndexOfArray(currentIdsForRanks.length);
-        // console.log('Rando', randomArrayIndex);
-        // currentIdsForRanks
         tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": currentIdsForRanks[randomArrayIndex]};        
         // skillsProfessional
         tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "L": userArray[i][23][1]};
@@ -811,50 +809,47 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": userArray[i][24][1]};
         // skillsLanguages
         tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": userArray[i][25][1]};
-        // lessonStatus - object - where key is the lesson id, and it has a value of 0 (no), 1(yes), 2(maybe).  if a lesson id does not exist in status, it gets all buttons.  if it does, it gets corresponding button
         
+        // lessonStatus - object - where key is the lesson id, and it has a value of 0 (no), 1(yes), 2(maybe).  if a lesson id does not exist in status, it gets all buttons.  if it does, it gets corresponding button
         // get lessons
         // return an array of lessons, where the current user is in the lesson.lessonAttendingArray
-        let lessonsUserAttending = allLessons.filter(lesson => lesson.lessonAttendees.find(userAttendingId => userAttendingId === currentIdsForUsers[i]))
-        let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'Id')
-        // diff arrays to get not attending
-        let lessonsUserNotYetAttending = arrayMethods.diffArrays(allLessons, lessonsUserAttending)
-        let lessonsUserNotYetAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserNotYetAttending, 'Id')
-        // from the not attending - lets select a random number of them (1/3 not attend, 1/3 maybe)
-        let randomNumberOfLessonsNotAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 2), 1)
-        // loop randomNumberof times, make no array
-        let lessonsUserNotAttendingId = []
-        for(let i = 0; i < randomNumberOfLessonsNotAttending; i += 1){
-          let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserNotAttendingId.length);
-          // then push that value into
-          lessonsUserNotAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
-          lessonsUserNotYetAttendingId.splice(randomIndex, 1)
-        }
-        let randomNumberOfLessonsMaybeAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 3), 1)
-        let lessonsUserMaybeAttendingId = []
-        for(let i = 0; i < randomNumberOfLessonsMaybeAttending; i += 1){
-          let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserMaybeAttendingId.length);
-          // then push that value into
-          lessonsUserMaybeAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
-          lessonsUserNotYetAttendingId.splice(randomIndex, 1)
-        }
-        // should have a smaller lessons Not Attending Array now
-        console.log(allLessons.length, "Attend: ", lessonsUserAttending.length, "Not Attend: ", lessonsUserNotAttendingId.length, "Maybe: ", lessonsUserMaybeAttendingId.length, "No Show: ", lessonsUserNotYetAttendingId.length);
-        let lessonStatusObj = {}
-        lessonsUserNotAttendingId.forEach(notAttendId => {
-          lessonStatusObj[notAttendId] = { "N": "0" }
-        })
-        lessonsUserAttendingId.forEach(attendId => {
-          lessonStatusObj[attendId] = { "N": "1"}
-        })
-        lessonsUserMaybeAttendingId.forEach(maybeAttendId => {
-          lessonStatusObj[maybeAttendId] = { "N": "2"}
-        })
-        console.log(lessonStatusObj);
-        // "M": { 
-        //   "Name": {"S": "Joe"}, 
-        //   "Age": {"N": "35"}
-        // }
+            let lessonsUserAttending = allLessons.filter(lesson => lesson.lessonAttendees.find(userAttendingId => userAttendingId === currentIdsForUsers[i]))
+            let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'Id')
+            // diff arrays to get not attending
+            let lessonsUserNotYetAttending = arrayMethods.diffArrays(allLessons, lessonsUserAttending)
+            let lessonsUserNotYetAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserNotYetAttending, 'Id')
+            // from the not attending - lets select a random number of them (1/3 not attend, 1/3 maybe)
+            let randomNumberOfLessonsNotAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 2), 1)
+            // loop randomNumberof times, make no array
+            let lessonsUserNotAttendingId = []
+            for(let i = 0; i < randomNumberOfLessonsNotAttending; i += 1){
+              let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserNotAttendingId.length);
+              // then push that value into
+              lessonsUserNotAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
+              lessonsUserNotYetAttendingId.splice(randomIndex, 1)
+            }
+            let randomNumberOfLessonsMaybeAttending = allFunctions.getRandomNumber(Math.ceil((lessonsUserNotYetAttendingId.length - 1) / 3), 1)
+            let lessonsUserMaybeAttendingId = []
+            for(let i = 0; i < randomNumberOfLessonsMaybeAttending; i += 1){
+              let randomIndex = allFunctions.getRandomIndexOfArray(lessonsUserMaybeAttendingId.length);
+              // then push that value into
+              lessonsUserMaybeAttendingId.push(lessonsUserNotYetAttendingId[randomIndex]);
+              lessonsUserNotYetAttendingId.splice(randomIndex, 1)
+            }
+            // should have a smaller lessons Not Attending Array now
+            console.log(allLessons.length, "Attend: ", lessonsUserAttending.length, "Not Attend: ", lessonsUserNotAttendingId.length, "Maybe: ", lessonsUserMaybeAttendingId.length, "No Show: ", lessonsUserNotYetAttendingId.length);
+            let lessonStatusObj = {}
+            lessonsUserNotAttendingId.forEach(notAttendId => {
+              lessonStatusObj[notAttendId] = { "N": "0" }
+            })
+            lessonsUserAttendingId.forEach(attendId => {
+              lessonStatusObj[attendId] = { "N": "1"}
+            })
+            lessonsUserMaybeAttendingId.forEach(maybeAttendId => {
+              lessonStatusObj[maybeAttendId] = { "N": "2"}
+            })
+            console.log(lessonStatusObj);
+        // "M": { "Name": {"S": "Joe"}, "Age": {"N": "35"} }
         // tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
         tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "M": lessonStatusObj};        
         // createdAt
@@ -862,18 +857,6 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // updatedAt - 29 [28]
         tempObj['PutRequest']['Item'][userArray[i][28][0]] = { "S": userArray[i][27][1]};        
         string[userTable].push(tempObj)
-        
-        // let lessonVotesArray = [];
-        // // console.log(lessonArray[i][6][1].length);
-        // for(let v = 0; v < userArray[i][6][1].length; v += 1){
-        //     let tempObj = {
-        //         "S": `${userArray[i][6][1][v]}`
-        //     }
-        //     // console.log(tempObj);
-        //     lessonVotesArray.push(tempObj)
-        // }
-        // // console.log(lessonVotesArray);
-        // tempObj['PutRequest']['Item'][userArray[i][6][0]] = { "L": lessonVotesArray};
     }
     // console.log(JSONString);
     JSONString = JSON.stringify(string)
