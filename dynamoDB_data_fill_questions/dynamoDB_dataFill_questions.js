@@ -18,6 +18,19 @@ let readJSONFromInterviewQuestionsAnswersIdFile = fs.readFileSync('../dynamoDB_m
 let currentIdsForInterviewQuestionsAnswers = JSON.parse(readJSONFromInterviewQuestionsAnswersIdFile)
 console.log(currentIdsForInterviewQuestionsAnswers.length);
 
+let readJSONFromProfileSkillsLanguage = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsLanguage.json', 'utf8');
+let allProfileSkillsLanguage = JSON.parse(readJSONFromProfileSkillsLanguage);
+
+let readJSONFromProfileSkillsProfessional = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsProfessional.json', 'utf8');
+let allProfileSkillsProfessional = JSON.parse(readJSONFromProfileSkillsProfessional);
+
+let readJSONFromProfileSkillsSoftware = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsSoftware.json', 'utf8');
+let allProfileSkillsSoftware = JSON.parse(readJSONFromProfileSkillsSoftware);
+
+let categoriesArray = [ ...allProfileSkillsLanguage, ...allProfileSkillsProfessional, ...allProfileSkillsSoftware]
+
+console.log('categoriesArr', categoriesArray);
+
 const allQuestionsArray = [
     [
         [ 'Id' ],
@@ -113,7 +126,19 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
         // Description
         tempObj['PutRequest']['Item'][questionArray[i][3][0]] = { "S": questionArray[i][3][1]};
         // Categories
-        tempObj['PutRequest']['Item'][questionArray[i][4][0]] = { "L": questionArray[i][4][1]};
+        // get random number of times to loop
+        let loopTimes = allFunctions.getRandomNumber(Math.ceil(categoriesArray.length / 4))
+        let arrayOfCategories = [];
+        let tempArray = [...categoriesArray]
+        for(let i = 0; i < loopTimes; i += 1){
+          let randomIndex = allFunctions.getRandomIndexOfArray(tempArray.length);
+          let tempString = {
+            "S": tempArray[randomIndex]['Id']
+          }
+          arrayOfCategories.push(tempString)
+        }
+        
+        tempObj['PutRequest']['Item'][questionArray[i][4][0]] = { "L": arrayOfCategories};
         // AnswersToQuestion
         // need to return an array
         let answersToQuestionArray = allFunctions.getArrayOfValuesAtAFixedLength(currentIdsForInterviewQuestionsAnswers, 2);
