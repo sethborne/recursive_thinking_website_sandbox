@@ -12,6 +12,19 @@ let readJSONFromLessonFile = fs.readFileSync('../dynamoDB_mock_data_returns/Recu
 let allLessons = JSON.parse(readJSONFromLessonFile);
 // console.log('allLessons', allLessons);
 
+let readJSONFromProfileSkillsLanguage = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsLanguage.json', 'utf8');
+let allProfileSkillsLanguage = JSON.parse(readJSONFromProfileSkillsLanguage);
+
+let readJSONFromProfileSkillsProfessional = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsProfessional.json', 'utf8');
+let allProfileSkillsProfessional = JSON.parse(readJSONFromProfileSkillsProfessional);
+
+let readJSONFromProfileSkillsSoftware = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingProfileSkillsSoftware.json', 'utf8');
+let allProfileSkillsSoftware = JSON.parse(readJSONFromProfileSkillsSoftware);
+
+// console.log('skillLang', allProfileSkillsLanguage);
+// console.log('skillProf', allProfileSkillsProfessional);
+// console.log('skillSoft', allProfileSkillsSoftware);
+
 let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
 
@@ -802,18 +815,48 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // rank
         // we'll want to ref in rank data, then call for a random index of that array
         let randomArrayIndex = allFunctions.getRandomIndexOfArray(currentIdsForRanks.length);
-        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": currentIdsForRanks[randomArrayIndex]};        
+        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": currentIdsForRanks[randomArrayIndex]}; 
+        
+        function generateUserSkillArray(skillArray){
+          let tempSkillArray = [];
+          for(let i = 0; i < skillArray.length; i += 1){
+            // each item
+            if(skillArray[i]['_usersWithSkill'].includes(currentIdsForUsers[i])){
+              //true 
+              let tempString = {
+                "S": skillArray[i]['Id']
+              };
+              tempSkillArray.push(tempString)
+            }
+            else {
+              //false do nothing
+            }
+          }
+          return tempSkillArray;
+        }
         // skillsProfessional
-        tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "L": userArray[i][23][1]};
+        // console.log('skillLang', allProfileSkillsLanguage);
+        // console.log('skillProf', allProfileSkillsProfessional);
+        // console.log('skillSoft', allProfileSkillsSoftware);
+        tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "L": generateUserSkillArray(allProfileSkillsLanguage)};
         // skillsSoftware - 25 [24]
-        tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": userArray[i][24][1]};
+        tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": generateUserSkillArray(allProfileSkillsProfessional)};
         // skillsLanguages
-        tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": userArray[i][25][1]};
+        tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": generateUserSkillArray(allProfileSkillsSoftware)};
         
         // lessonStatus - object - where key is the lesson id, and it has a value of 0 (no), 1(yes), 2(maybe).  if a lesson id does not exist in status, it gets all buttons.  if it does, it gets corresponding button
         // get lessons
         // return an array of lessons, where the current user is in the lesson.lessonAttendingArray
-            let lessonsUserAttending = allLessons.filter(lesson => lesson.lessonAttendees.find(userAttendingId => userAttendingId === currentIdsForUsers[i]))
+            let lessonsUserAttending = []
+            allLessons.forEach(lesson => {
+              // console.log(lesson.lessonAttendees, currentIdsForUsers[i]);
+              // console.log(lesson.lessonAttendees.includes(currentIdsForUsers[i]));
+              if(lesson.lessonAttendees.includes(currentIdsForUsers[i])){
+                lessonsUserAttending.push(lesson)
+              }
+            })
+            // console.log('userAttend', lessonsUserAttending);
+            // console.log(currentIdsForUsers[i], lessonsUserAttending);
             let lessonsUserAttendingId = allFunctions.makeArrayFromObjectKey(lessonsUserAttending, 'Id')
             // diff arrays to get not attending
             let lessonsUserNotYetAttending = arrayMethods.diffArrays(allLessons, lessonsUserAttending)
@@ -837,7 +880,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
               lessonsUserNotYetAttendingId.splice(randomIndex, 1)
             }
             // should have a smaller lessons Not Attending Array now
-            console.log(allLessons.length, "Attend: ", lessonsUserAttending.length, "Not Attend: ", lessonsUserNotAttendingId.length, "Maybe: ", lessonsUserMaybeAttendingId.length, "No Show: ", lessonsUserNotYetAttendingId.length);
+            // console.log(allLessons.length, "Attend: ", lessonsUserAttending.length, "Not Attend: ", lessonsUserNotAttendingId.length, "Maybe: ", lessonsUserMaybeAttendingId.length, "No Show: ", lessonsUserNotYetAttendingId.length);
             let lessonStatusObj = {}
             lessonsUserNotAttendingId.forEach(notAttendId => {
               lessonStatusObj[notAttendId] = { "N": "0" }
@@ -848,7 +891,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
             lessonsUserMaybeAttendingId.forEach(maybeAttendId => {
               lessonStatusObj[maybeAttendId] = { "N": "2"}
             })
-            console.log(lessonStatusObj);
+            // console.log(lessonStatusObj);
         // "M": { "Name": {"S": "Joe"}, "Age": {"N": "35"} }
         // tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
         tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "M": lessonStatusObj};        
