@@ -152,7 +152,8 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
         questionObj.push(temp)
     }
     questionObj = JSON.stringify(questionObj)
-    fs.writeFileSync(`../dynamoDB_mock_data_returns/${questionTable}.json`, questionObj, 'utf8')
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/${questionTable}.json`, questionObj, 'utf8');;
+    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${questionTable}.json`, questionObj, 'utf8')
 }
 
 buildJSONStringForLessonOutput(allQuestionsArray, 'RecursiveThinkingInterviewQuestions')
