@@ -141,8 +141,9 @@ function buildJSONStringForAnswerOutput(rankArray, rankTable){
     // console.log(string);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${rankTable}.json`, JSONString, 'utf8')
-    let readRankObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${rankTable}.json`, 'utf8');
+    // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${rankTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${rankTable}.json`, JSONString, 'utf8')
+    let readRankObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${rankTable}.json`, 'utf8');
     let parseReadRankObj = JSON.parse(readRankObj)
     let rankObj = []
     for(let item = 0; item < parseReadRankObj['RecursiveThinkingRanks'].length; item += 1){
@@ -151,6 +152,8 @@ function buildJSONStringForAnswerOutput(rankArray, rankTable){
     }
     rankObj = JSON.stringify(rankObj)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${rankTable}.json`, rankObj, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${rankTable}.json`, tempArr, 'utf8');
+    
 }
 
 buildJSONStringForAnswerOutput(allRanksArray, 'RecursiveThinkingRanks')
