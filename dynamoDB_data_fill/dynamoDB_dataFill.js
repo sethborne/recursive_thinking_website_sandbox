@@ -95,9 +95,10 @@ function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
     // console.log(JSONString);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, JSONString, 'utf8')
+    // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, JSONString, 'utf8')
     // read back the db fill file
-    let tempReadArr = fs.readFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, 'utf8');
+    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${skillTable}.json`, JSONString, 'utf8')
+    let tempReadArr = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${skillTable}.json`, 'utf8');
     let parseTempReadObj = JSON.parse(tempReadArr);
     // console.log(parseTempReadObj);
     let tempArr = []
@@ -108,6 +109,7 @@ function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
     tempArr = JSON.stringify(tempArr)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${skillTable}.json`, tempArr, 'utf8');
     fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${skillTable}.json`, tempArr, 'utf8');
+    
 }
 
 buildJSONStringForSkillOutput(currentIdsForSkillsLanguages, allSkillsLanguageArray, 'RecursiveThinkingProfileSkillsLanguage')
