@@ -308,8 +308,9 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
     // console.log(JSONString);
     JSONString = JSON.stringify(JSONString)
     // console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${lessonTable}.json`, JSONString, 'utf8')
-    let readLessonObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${lessonTable}.json`, 'utf8');
+    // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${lessonTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${lessonTable}.json`, JSONString, 'utf8')
+    let readLessonObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${lessonTable}.json`, 'utf8');
     let parseReadLessonObj = JSON.parse(readLessonObj)
     // console.log(parseRead['RecursiveThinkingLessons'][0]['PutRequest']['Item']);
     let lessonObj = []
