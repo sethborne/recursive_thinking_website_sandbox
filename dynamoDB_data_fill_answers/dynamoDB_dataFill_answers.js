@@ -172,8 +172,9 @@ function buildJSONStringForAnswerOutput(answerArray, answerTable){
     // console.log(string);
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, JSONString, 'utf8')
-    let readAnswerObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, 'utf8');
+    // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${answerTable}.json`, JSONString, 'utf8')
+    let readAnswerObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${answerTable}.json`, 'utf8');
     let parseReadAnswerObj = JSON.parse(readAnswerObj)
     let answerObj = []
     for(let item = 0; item < parseReadAnswerObj['RecursiveThinkingInterviewQuestionsAnswers'].length; item += 1){
@@ -182,6 +183,8 @@ function buildJSONStringForAnswerOutput(answerArray, answerTable){
     }
     answerObj = JSON.stringify(answerObj)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${answerTable}.json`, answerObj, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${answerTable}.json`, answerObj, 'utf8');
+    
 }
 
 buildJSONStringForAnswerOutput(allAnswersArray, 'RecursiveThinkingInterviewQuestionsAnswers')
