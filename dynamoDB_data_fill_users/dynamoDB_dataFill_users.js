@@ -55,6 +55,7 @@ const allUsersArray = [
         // [ 'picture',  '../images/avatar2.png'],
         [ 'avatar',  `avatar2.png`],
         [ 'name', 'Kevin Norwood Bacon' ],
+        [ 'email', 'onlySixPeopleAway@gmail.com'],
         [ 'city', 'Philadelphia' ],
         [ 'state', 'PA' ],
         [ 'employer', 'Bacon Bros, Inc.' ],
@@ -78,6 +79,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ], 
@@ -87,6 +92,7 @@ const allUsersArray = [
         [ 'username', 'meowmeow'] ,
         [ 'avatar',  `avatar4.png`],
         [ 'name', 'Selina Kyle' ],
+        [ 'email', 'meowmeow@gmail.com'],
         [ 'city', 'Gotham' ],
         [ 'state', 'NY' ],
         [ 'employer', 'DC Comics' ],
@@ -110,6 +116,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
     ],
@@ -119,6 +129,7 @@ const allUsersArray = [
         [ 'username', 'letThemEatCake'] ,
         [ 'avatar',  'avatar5.png'],
         [ 'name', 'Amelia Simmons' ],
+        [ 'email', 'letThemEatCake@gmail.com'],
         [ 'city', 'Hartford' ],
         [ 'state', 'CT' ],
         [ 'employer', 'American Cookery' ],
@@ -142,6 +153,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 500).toString() ],
         [ 'updatedAt' ]
     ],
@@ -151,6 +166,7 @@ const allUsersArray = [
         [ 'username', 'tablesShallBeRound'] ,
         [ 'avatar',  'avatar1.png'],
         [ 'name', 'King Authur' ],
+        [ 'email', 'tablesShallBeRound@gmail.com'],
         [ 'city', 'Camelot' ],
         [ 'state', 'WA' ],
         [ 'employer', 'United Kingdom' ],
@@ -174,6 +190,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
@@ -183,6 +203,7 @@ const allUsersArray = [
         [ 'username', 'happyTrees4All'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Robert Ross' ],
+        [ 'email', 'happyTrees4All@gmail.com'],
         [ 'city', 'Daytona Beach' ],
         [ 'state', 'FL' ],
         [ 'employer', 'Happy Tree Co.' ],
@@ -206,6 +227,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 400).toString() ],
         [ 'updatedAt' ]
     ],
@@ -215,6 +240,7 @@ const allUsersArray = [
         [ 'username', 'oneTallBoyToRuleThemAll'] ,
         [ 'avatar',  'avatar_default.png'],
         [ 'name', 'Sir Von Douchebag' ],
+        [ 'email', 'oneTallBoyToRuleThemAll@gmail.com'],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
         [ 'employer', 'Pabst Blue Ribbion Brewing' ],
@@ -238,6 +264,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 50).toString() ],
         [ 'updatedAt' ]
     ],
@@ -247,6 +277,7 @@ const allUsersArray = [
         [ 'username', 'yeahImGonnaNeed'] ,
         [ 'avatar',  'avatar3.png'],
         [ 'name', 'Bill Lumbergh' ],
+        [ 'email', 'yeahImGonnaNeed@gmail.com'],
         [ 'city', 'Austin' ],
         [ 'state', 'TX' ],
         [ 'employer', 'Initech' ],
@@ -270,6 +301,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 250).toString() ],
         [ 'updatedAt' ]
     ],
@@ -279,6 +314,7 @@ const allUsersArray = [
         [ 'username', 'blackbart'] ,
         [ 'avatar',  'avatar_default.png'],
         [ 'name', 'One Eyed Willy' ],
+        [ 'email', 'blackbart@gmail.com'],
         [ 'city', 'Astoria' ],
         [ 'state', 'OR' ],
         [ 'employer', 'The Inferno, Inc.' ],
@@ -302,6 +338,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 120).toString() ],
         [ 'updatedAt' ]
     ],
@@ -311,6 +351,7 @@ const allUsersArray = [
         [ 'username', 'theCosmostist'] ,
         [ 'avatar',  'avatar1.png'],
         [ 'name', 'Carl Sagan' ],
+        [ 'email', 'theCosmostist@gmail.com'],
         [ 'city', 'Brooklyn' ],
         [ 'state', 'NY' ],
         [ 'employer', 'SETI' ],
@@ -334,6 +375,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
     ],
@@ -343,6 +388,7 @@ const allUsersArray = [
         [ 'username', 'badassMofo'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Samuel L. Jackson' ],
+        [ 'email', 'badassMofo@gmail.com'],
         [ 'city', 'Washington' ],
         [ 'state', 'D.C.' ],
         [ 'employer', 'Wallace Enterprises' ],
@@ -366,6 +412,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 230).toString() ],
         [ 'updatedAt' ]
     ],
@@ -375,6 +425,7 @@ const allUsersArray = [
         [ 'username', 'thebirdman'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Tony Hawk' ],
+        [ 'email', 'thebirdman@gmail.com'],
         [ 'city', 'San Diego' ],
         [ 'state', 'CA' ],
         [ 'employer', 'Boom Boom HuckJam' ],
@@ -398,6 +449,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 420).toString() ],
         [ 'updatedAt' ]
     ],
@@ -407,6 +462,7 @@ const allUsersArray = [
         [ 'username', 'numberOne'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'William Thomas Riker' ],
+        [ 'email', 'numberOne@gmail.com'],
         [ 'city', 'Nome' ],
         [ 'state', 'AK' ],
         [ 'employer', 'United Federation of Planets' ],
@@ -430,6 +486,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 358).toString() ],
         [ 'updatedAt' ]
     ],
@@ -439,6 +499,7 @@ const allUsersArray = [
         [ 'username', 'timeTraveler'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Marty McFly' ],
+        [ 'email', 'timeTraveler@gmail.com'],
         [ 'city', 'Hill Valley' ],
         [ 'state', 'CA' ],
         [ 'employer', 'Brown Enterprises' ],
@@ -462,6 +523,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 85).toString() ],
         [ 'updatedAt' ]
     ],
@@ -471,6 +536,7 @@ const allUsersArray = [
         [ 'username', 'heisenberg'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Walter White' ],
+        [ 'email', 'heisenberg@gmail.com'],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
         [ 'employer', 'A1 Car Wash' ],
@@ -494,6 +560,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
@@ -503,6 +573,7 @@ const allUsersArray = [
         [ 'username', 'betterCallMe'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Saul Goodman' ],
+        [ 'email', 'betterCallMe@gmail.com'],
         [ 'city', 'Albuquerque' ],
         [ 'state', 'NM' ],
         [ 'employer', 'Law Offices of Saul Goodman' ],
@@ -526,6 +597,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
     ],
@@ -535,6 +610,7 @@ const allUsersArray = [
         [ 'username', 'hodorhodor'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Hodor' ],
+        [ 'email', 'hodorhodor@gmail.com'],
         [ 'city', 'Hodor' ],
         [ 'state', 'hodor' ],
         [ 'employer', 'Hodor hodor hodor hodor' ],
@@ -558,6 +634,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 123).toString() ],
         [ 'updatedAt' ]
     ],
@@ -567,6 +647,7 @@ const allUsersArray = [
         [ 'username', 'iWantToBelieve'] ,
         [ 'avatar',  'avatar2.png'],
         [ 'name', 'Fox Mulder' ],
+        [ 'email', 'iWantToBelieve@gmail.com'],
         [ 'city', 'Chilmark' ],
         [ 'state', 'Massachusetts' ],
         [ 'employer', 'Federal Bureau of Investigation' ],
@@ -590,6 +671,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 424).toString() ],
         [ 'updatedAt' ]
     ],
@@ -599,6 +684,7 @@ const allUsersArray = [
         [ 'username', 'amazingGrace'] ,
         [ 'avatar',  'avatar4.png'],
         [ 'name', 'Grace Brewster Murray Hopper' ],
+        [ 'email', 'amazingGrace@gmail.com'],
         [ 'city', 'New York City' ],
         [ 'state', 'NY' ],
         [ 'employer', 'United States Navy' ],
@@ -622,6 +708,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 190).toString() ],
         [ 'updatedAt' ]
     ],
@@ -631,6 +721,7 @@ const allUsersArray = [
         [ 'username', 'stacksOfCode'] ,
         [ 'avatar',  'avatar5.png'],
         [ 'name', 'Margaret Heafield Hamilton' ],
+        [ 'email', 'stacksOfCode@gmail.com'],
         [ 'city', 'Paoli' ],
         [ 'state', 'IN' ],
         [ 'employer', 'Hamilton Technologies' ],
@@ -654,6 +745,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 136).toString() ],
         [ 'updatedAt' ]
     ],
@@ -663,6 +758,7 @@ const allUsersArray = [
         [ 'username', 'roundhouseToTheFace'] ,
         [ 'avatar',  'avatar1.png'],
         [ 'name', 'Carlos (Chuck) Ray Norris' ],
+        [ 'email', 'roundhouseToTheFace@gmail.com'],
         [ 'city', 'Ryan' ],
         [ 'state', 'OK' ],
         [ 'employer', 'Roundhouse Inc.' ],
@@ -686,6 +782,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 194).toString() ],
         [ 'updatedAt' ]
     ],
@@ -695,6 +795,7 @@ const allUsersArray = [
         [ 'username', 'crank'] ,
         [ 'avatar',  'avatar3.png'],
         [ 'name', 'William Gary Busey' ],
+        [ 'email', 'crank@gmail.com'],
         [ 'city', 'Goose Creek' ],
         [ 'state', 'TX' ],
         [ 'employer', 'I\'m with Busey' ],
@@ -718,6 +819,10 @@ const allUsersArray = [
         [ 'skillsSoftware', [] ],
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
+        [ 'admin' ],
+        [ 'inactive', 'false'],
+        [ 'isProfileSetup', 'true'],
+        [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 944).toString() ],
         [ 'updatedAt' ]
     ]
@@ -776,46 +881,48 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][2][0]] = { "S": userArray[i][2][1]};
         // name
         tempObj['PutRequest']['Item'][userArray[i][3][0]] = { "S": userArray[i][3][1]};
-        // city - 5 [4]
-        tempObj['PutRequest']['Item'][userArray[i][4][0]] = { "S": userArray[i][4][1]};        
+        // email - 5 [4]
+        tempObj['PutRequest']['Item'][userArray[i][4][0]] = { "S": userArray[i][4][1]};
+        // city
+        tempObj['PutRequest']['Item'][userArray[i][5][0]] = { "S": userArray[i][5][1]};        
         // state
-        tempObj['PutRequest']['Item'][userArray[i][5][0]] = { "S": userArray[i][5][1]};
-        // employer
         tempObj['PutRequest']['Item'][userArray[i][6][0]] = { "S": userArray[i][6][1]};
-        // title
+        // employer
         tempObj['PutRequest']['Item'][userArray[i][7][0]] = { "S": userArray[i][7][1]};
-        // github
+        // title
         tempObj['PutRequest']['Item'][userArray[i][8][0]] = { "S": userArray[i][8][1]};
-        // codepen - 10 [9]
-        tempObj['PutRequest']['Item'][userArray[i][9][0]] = { "S": userArray[i][9][1]};        
+        // github - 10 [9]
+        tempObj['PutRequest']['Item'][userArray[i][9][0]] = { "S": userArray[i][9][1]};
+        // codepen
+        tempObj['PutRequest']['Item'][userArray[i][10][0]] = { "S": userArray[i][10][1]};        
         // linkedin
-        tempObj['PutRequest']['Item'][userArray[i][10][0]] = { "S": userArray[i][10][1]};
-        // portfolioWebsite        
         tempObj['PutRequest']['Item'][userArray[i][11][0]] = { "S": userArray[i][11][1]};
-        // resume
+        // portfolioWebsite        
         tempObj['PutRequest']['Item'][userArray[i][12][0]] = { "S": userArray[i][12][1]};
-        // bio        
+        // resume
         tempObj['PutRequest']['Item'][userArray[i][13][0]] = { "S": userArray[i][13][1]};
-        // profileStatsVisits - 15 [14]
-        tempObj['PutRequest']['Item'][userArray[i][14][0]] = { "N": userArray[i][14][1]};
-        // profileStatsViewsGithub
+        // bio - 15 [14]
+        tempObj['PutRequest']['Item'][userArray[i][14][0]] = { "S": userArray[i][14][1]};
+        // profileStatsVisits 
         tempObj['PutRequest']['Item'][userArray[i][15][0]] = { "N": userArray[i][15][1]};
-        // profileStatsViewsCodePen
+        // profileStatsViewsGithub
         tempObj['PutRequest']['Item'][userArray[i][16][0]] = { "N": userArray[i][16][1]};
+        // profileStatsViewsCodePen
+        tempObj['PutRequest']['Item'][userArray[i][17][0]] = { "N": userArray[i][17][1]};
         // profileStatsViewsPortfolio
-        tempObj['PutRequest']['Item'][userArray[i][17][0]] = { "N": userArray[i][17][1]};        
-        // profileStatsViewsLinkedIn
-        tempObj['PutRequest']['Item'][userArray[i][18][0]] = { "N": userArray[i][18][1]};
-        // profileStatsViewsResume - 20 [19]
+        tempObj['PutRequest']['Item'][userArray[i][18][0]] = { "N": userArray[i][18][1]};        
+        // profileStatsViewsLinkedIn - 20 [19]
         tempObj['PutRequest']['Item'][userArray[i][19][0]] = { "N": userArray[i][19][1]};
+        // profileStatsViewsResume 
+        tempObj['PutRequest']['Item'][userArray[i][20][0]] = { "N": userArray[i][20][1]};
         // experience
-        tempObj['PutRequest']['Item'][userArray[i][20][0]] = { "S": userArray[i][20][1]};
+        tempObj['PutRequest']['Item'][userArray[i][21][0]] = { "S": userArray[i][21][1]};
         // timeWithRT
-        tempObj['PutRequest']['Item'][userArray[i][21][0]] = { "S": userArray[i][27][1]};
+        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": userArray[i][22][1]};
         // rank
         // we'll want to ref in rank data, then call for a random index of that array
         let randomArrayIndex = allFunctions.getRandomIndexOfArray(currentIdsForRanks.length);
-        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": currentIdsForRanks[randomArrayIndex]}; 
+        tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "S": currentIdsForRanks[randomArrayIndex]}; 
         
         function generateUserSkillArray(skillArray){
           let tempSkillArray = [];
@@ -834,15 +941,15 @@ function buildJSONStringForUserOutput(userArray, userTable){
           }
           return tempSkillArray;
         }
-        // skillsProfessional
+        // skillsProfessional  - 25 [24]
         // console.log('skillLang', allProfileSkillsLanguage);
         // console.log('skillProf', allProfileSkillsProfessional);
         // console.log('skillSoft', allProfileSkillsSoftware);
-        tempObj['PutRequest']['Item'][userArray[i][23][0]] = { "L": generateUserSkillArray(allProfileSkillsLanguage)};
-        // skillsSoftware - 25 [24]
-        tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": generateUserSkillArray(allProfileSkillsProfessional)};
+        tempObj['PutRequest']['Item'][userArray[i][24][0]] = { "L": generateUserSkillArray(allProfileSkillsLanguage)};
+        // skillsSoftware
+        tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": generateUserSkillArray(allProfileSkillsProfessional)};
         // skillsLanguages
-        tempObj['PutRequest']['Item'][userArray[i][25][0]] = { "L": generateUserSkillArray(allProfileSkillsSoftware)};
+        tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": generateUserSkillArray(allProfileSkillsSoftware)};
         
         // lessonStatus - object - where key is the lesson id, and it has a value of 0 (no), 1(yes), 2(maybe).  if a lesson id does not exist in status, it gets all buttons.  if it does, it gets corresponding button
         // get lessons
@@ -892,20 +999,30 @@ function buildJSONStringForUserOutput(userArray, userTable){
               lessonStatusObj[maybeAttendId] = { "N": "2"}
             })
             // console.log(lessonStatusObj);
-        // "M": { "Name": {"S": "Joe"}, "Age": {"N": "35"} }
+        //still lessonStatus!  :)
+            // "M": { "Name": {"S": "Joe"}, "Age": {"N": "35"} }
         // tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
-        tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "M": lessonStatusObj};        
+        tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "M": lessonStatusObj};        
+        // admin - quick random bool number for admin
+        tempObj['PutRequest']['Item'][userArray[i][28][0]] = { "BOOL": Math.random() > .5 ? false : true};
+        // isActive - 30 [29]
+        tempObj['PutRequest']['Item'][userArray[i][29][0]] = { "BOOL": userArray[i][29][1]};
+        // isProfileSetup
+        tempObj['PutRequest']['Item'][userArray[i][30][0]] = { "BOOL": userArray[i][30][1]};
         // createdAt
-        tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "S": userArray[i][27][1]};
-        // updatedAt - 29 [28]
-        tempObj['PutRequest']['Item'][userArray[i][28][0]] = { "S": userArray[i][27][1]};        
+        tempObj['PutRequest']['Item'][userArray[i][31][0]] = { "S": Date()};
+        // createdAt
+        tempObj['PutRequest']['Item'][userArray[i][32][0]] = { "S": userArray[i][32][1]};
+        // updatedAt 
+        tempObj['PutRequest']['Item'][userArray[i][33][0]] = { "S": userArray[i][33][1]};        
         string[userTable].push(tempObj)
     }
     // console.log(JSONString);
     JSONString = JSON.stringify(string)
     // console.log(JSONString);
-    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${userTable}.json`, JSONString, 'utf8')
-    let readUserObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${userTable}.json`, 'utf8');
+    // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${userTable}.json`, JSONString, 'utf8')
+    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${userTable}.json`, JSONString, 'utf8')
+    let readUserObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${userTable}.json`, 'utf8');
     let parseReadUserObj = JSON.parse(readUserObj)
     // console.log(parseRead['RecursiveThinkingLessons'][0]['PutRequest']['Item']);
     let userObj = []
@@ -915,7 +1032,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
     }
     userObj = JSON.stringify(userObj)
     fs.writeFileSync(`../dynamoDB_mock_data_returns/${userTable}.json`, userObj, 'utf8')
-    fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/main/data_returns/${userTable}.json`, userObj, 'utf8')
+    
 }
 
 buildJSONStringForUserOutput(allUsersArray, 'RecursiveThinkingDeveloperProfiles')
