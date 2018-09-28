@@ -80,8 +80,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
@@ -117,8 +117,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 240).toString() ],
         [ 'updatedAt' ]
@@ -154,8 +154,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 500).toString() ],
         [ 'updatedAt' ]
@@ -191,8 +191,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
@@ -228,8 +228,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 400).toString() ],
         [ 'updatedAt' ]
@@ -265,8 +265,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 50).toString() ],
         [ 'updatedAt' ]
@@ -302,8 +302,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 250).toString() ],
         [ 'updatedAt' ]
@@ -339,8 +339,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 120).toString() ],
         [ 'updatedAt' ]
@@ -376,8 +376,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 600).toString() ],
         [ 'updatedAt' ]
@@ -413,8 +413,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 230).toString() ],
         [ 'updatedAt' ]
@@ -450,8 +450,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 420).toString() ],
         [ 'updatedAt' ]
@@ -487,8 +487,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 358).toString() ],
         [ 'updatedAt' ]
@@ -524,8 +524,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 85).toString() ],
         [ 'updatedAt' ]
@@ -561,8 +561,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
@@ -598,8 +598,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 164).toString() ],
         [ 'updatedAt' ]
@@ -635,8 +635,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 123).toString() ],
         [ 'updatedAt' ]
@@ -672,8 +672,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 424).toString() ],
         [ 'updatedAt' ]
@@ -709,8 +709,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 190).toString() ],
         [ 'updatedAt' ]
@@ -746,8 +746,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 136).toString() ],
         [ 'updatedAt' ]
@@ -783,8 +783,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 194).toString() ],
         [ 'updatedAt' ]
@@ -820,8 +820,8 @@ const allUsersArray = [
         [ 'skillsLanguages', [] ],
         [ 'lessonStatus' ],
         [ 'admin' ],
-        [ 'inactive', 'false'],
-        [ 'isProfileSetup', 'true'],
+        [ 'inactive', false ],
+        [ 'isProfileSetup', true],
         [ 'lastActive' ],
         [ 'createdAt', allFunctions.shiftDays('before', 944).toString() ],
         [ 'updatedAt' ]
@@ -917,8 +917,8 @@ function buildJSONStringForUserOutput(userArray, userTable){
         tempObj['PutRequest']['Item'][userArray[i][20][0]] = { "N": userArray[i][20][1]};
         // experience
         tempObj['PutRequest']['Item'][userArray[i][21][0]] = { "S": userArray[i][21][1]};
-        // timeWithRT
-        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": userArray[i][22][1]};
+        // timeWithRT - this is same as createdat [32]
+        tempObj['PutRequest']['Item'][userArray[i][22][0]] = { "S": userArray[i][32][1]};
         // rank
         // we'll want to ref in rank data, then call for a random index of that array
         let randomArrayIndex = allFunctions.getRandomIndexOfArray(currentIdsForRanks.length);
@@ -1004,7 +1004,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // tempObj['PutRequest']['Item'][userArray[i][26][0]] = { "L": userArray[i][26][1]};        
         tempObj['PutRequest']['Item'][userArray[i][27][0]] = { "M": lessonStatusObj};        
         // admin - quick random bool number for admin
-        tempObj['PutRequest']['Item'][userArray[i][28][0]] = { "BOOL": Math.random() > .5 ? false : true};
+        tempObj['PutRequest']['Item'][userArray[i][28][0]] = { "BOOL": Math.random() > .5 ? false : true };
         // isActive - 30 [29]
         tempObj['PutRequest']['Item'][userArray[i][29][0]] = { "BOOL": userArray[i][29][1]};
         // isProfileSetup
@@ -1014,7 +1014,7 @@ function buildJSONStringForUserOutput(userArray, userTable){
         // createdAt
         tempObj['PutRequest']['Item'][userArray[i][32][0]] = { "S": userArray[i][32][1]};
         // updatedAt 
-        tempObj['PutRequest']['Item'][userArray[i][33][0]] = { "S": userArray[i][33][1]};        
+        tempObj['PutRequest']['Item'][userArray[i][33][0]] = { "S": userArray[i][32][1]};        
         string[userTable].push(tempObj)
     }
     // console.log(JSONString);
