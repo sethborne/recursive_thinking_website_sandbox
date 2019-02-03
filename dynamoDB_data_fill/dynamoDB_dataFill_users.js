@@ -25,7 +25,7 @@ let allProfileSkillsSoftware = JSON.parse(readJSONFromProfileSkillsSoftware);
 // console.log('skillProf', allProfileSkillsProfessional);
 // console.log('skillSoft', allProfileSkillsSoftware);
 
-let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUserIdArray.json', 'utf8');
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
 
 let readJSONFromRankIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingRanksIdArray.json', 'utf8');
@@ -62,7 +62,7 @@ const allUsersArray = [
         [ 'title', 'Dancer' ],
         [ 'linkGithub', emptyString ],
         [ 'linkCodepen', emptyString ],
-        [ 'linkLinkedin', emptyString ],
+        [ 'linkLinkedIn', emptyString ],
         [ 'linkPortfolioWebsite', 'http://www.baconbros.com' ],
         [ 'linkResume', emptyString ],
         [ 'bio', 'Bacon ipsum dolor amet doner brisket jowl ground round bacon burgdoggen. Prosciutto short loin sirloin, filet mignon meatball capicola picanha rump pork belly ground round t-bone buffalo sausage swine. Ham hock jowl leberkas, bresaola chuck shoulder short loin landjaeger brisket ground round strip steak prosciutto sirloin. Shank t-bone pork belly, picanha meatloaf short ribs jerky swine turkey kevin ham hock. Sirloin hamburger short loin chicken jerky beef ribs swine shank landjaeger bacon cow.' ],
@@ -839,7 +839,7 @@ const allUsersArray = [
 // }
 // // console.log(lessonIdArray);
 // usersIdArray = JSON.stringify(usersIdArray)
-// fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json`, usersIdArray, 'utf8')
+// fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json`, usersIdArray, 'utf8')
 
 // =========================================================================
 
@@ -853,8 +853,8 @@ else{
     }
     // console.log(lessonIdArray);
     usersIdArray = JSON.stringify(usersIdArray)
-    fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json`, usersIdArray, 'utf8')
-    readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+    fs.writeFileSync(`../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json`, usersIdArray, 'utf8')
+    readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json', 'utf8');
     currentIdsForUsers = JSON.parse(readJSONFromUserIdFile) 
 }
 
@@ -1027,8 +1027,8 @@ function buildJSONStringForUserOutput(userArray, userTable){
     let parseReadUserObj = JSON.parse(readUserObj)
     // console.log(parseRead['RecursiveThinkingLessons'][0]['PutRequest']['Item']);
     let userObj = []
-    for(let item = 0; item < parseReadUserObj['RecursiveThinkingDeveloperProfiles'].length; item += 1){
-        let temp = AWS.DynamoDB.Converter.unmarshall(parseReadUserObj['RecursiveThinkingDeveloperProfiles'][item]['PutRequest']['Item'])
+    for(let item = 0; item < parseReadUserObj['RecursiveThinkingUsers'].length; item += 1){
+        let temp = AWS.DynamoDB.Converter.unmarshall(parseReadUserObj['RecursiveThinkingUsers'][item]['PutRequest']['Item'])
         userObj.push(temp)
     }
     userObj = JSON.stringify(userObj)
@@ -1036,5 +1036,5 @@ function buildJSONStringForUserOutput(userArray, userTable){
     fs.writeFileSync(`../../recursive_thinking_website_react_sandbox/recursive_thinking_website_react/data_returns/${userTable}.json`, userObj, 'utf8')
 }
 
-buildJSONStringForUserOutput(allUsersArray, 'RecursiveThinkingDeveloperProfiles')
+buildJSONStringForUserOutput(allUsersArray, 'RecursiveThinkingUsers')
 

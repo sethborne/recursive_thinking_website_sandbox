@@ -6,12 +6,12 @@ const uuidv1 = require('uuid/v1');
 let allFunctions = require('../all_functions/all_functions.js');
 // console.log('in question', dateFunction.shiftDays('before', 45).toString());
 
-let readJSONFromUserFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfiles.json', 'utf8');
+let readJSONFromUserFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUsers.json', 'utf8');
 let allUsers = JSON.parse(readJSONFromUserFile)
 // console.log(allUsers);
 // this is an array
 
-let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json', 'utf8');
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
 
 let readJSONFromLessonIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingLessonsIdArray.json', 'utf8');
@@ -19,6 +19,15 @@ let currentIdsForLessons = JSON.parse(readJSONFromLessonIdFile)
 
 // let arrayOfUserIDs = allFunctions.makeArrayFromObjectKey(allUsers, 'userId');
 // let randomIndex = allFunctions.getRandomIndexOfArray(arrayOfUserIDs.length);
+
+let nextSaturday;
+//  = allFunctions.whenIsNextSaturdayNoon(new Date())
+// console.log('nextSat', nextSaturday)
+// console.log('nextSatafterN', allFunctions.whenIsNextSaturdayNoon(nextSaturday))
+// console.log('nextSatafterN N', allFunctions.whenIsNextSaturdayNoon(nextSaturday))
+// console.log('nextSatafterN N N', allFunctions.whenIsNextSaturdayNoon(nextSaturday))
+// console.log('nextSatafterN N N N', allFunctions.whenIsNextSaturdayNoon(nextSaturday))
+// console.log('nextSatafterN N N N N', allFunctions.whenIsNextSaturdayNoon(nextSaturday))
 
 const allLessonsArray = [
     // Should not show on either Lessons or Upcoming Lessons
@@ -200,6 +209,7 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
 
     }
     JSONString[lessonTable] = []
+    let count = 0;
     for(let i = 0; i < lessonArray.length; i += 1){
         
         let tempObj = {
@@ -220,7 +230,20 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
         // Title
         tempObj['PutRequest']['Item'][lessonArray[i][1][0]] = { "S": lessonArray[i][1][1]};
         // Date
-        tempObj['PutRequest']['Item'][lessonArray[i][2][0]] = { "S": lessonArray[i][2][1]};
+        console.log('date', lessonArray[i][2][1])
+        if(lessonArray[i][2][1] !== ' '){
+          if(count < 1){
+            nextSaturday = allFunctions.whenIsNextSaturdayNoon(new Date())
+            count += 1;
+          } else {
+            console.log('next')
+            nextSaturday = allFunctions.whenIsNextSaturdayNoon(nextSaturday)
+          }
+          console.log('nextSat', nextSaturday) 
+          tempObj['PutRequest']['Item'][lessonArray[i][2][0]] = { "S": nextSaturday};
+        } else {
+          tempObj['PutRequest']['Item'][lessonArray[i][2][0]] = { "S": lessonArray[i][2][1]};
+        }
         // Description
         tempObj['PutRequest']['Item'][lessonArray[i][3][0]] = { "S": lessonArray[i][3][1]};
         // lessonTaughtByArray
@@ -278,7 +301,7 @@ function buildJSONStringForLessonOutput(lessonArray, lessonTable){
           return { "S": item };
         })
         // console.log(lessonAttendeesArray.length);
-        console.log(dbFillLessonAttendingArray);
+        // console.log(dbFillLessonAttendingArray);
         tempObj['PutRequest']['Item'][lessonArray[i][5][0]] = { "L": dbFillLessonAttendingArray};
                       
         // lessonVotes
