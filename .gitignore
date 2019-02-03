@@ -7,3 +7,8 @@ secrets/
 package.json
 package-lock.json
 */_arch
+/counter_exercise
+/github_Battle
+/polymorphism
+/regex_tests
+README_COMMANDS.md
