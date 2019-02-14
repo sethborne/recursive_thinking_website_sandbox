@@ -5,7 +5,7 @@ const uuidv1 = require('uuid/v1');
 
 let allFunctions = require('../all_functions/all_functions.js');
 
-let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json', 'utf8');
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile)
 console.log(currentIdsForUsers.length);
 
@@ -151,13 +151,13 @@ function buildJSONStringForAnswerOutput(answerArray, answerTable){
         // Id      
         tempObj['PutRequest']['Item'][answerArray[i][0][0]] = { "S": currentIdsForInterviewQuestionsAnswers[i]};
         // title
-        tempObj['PutRequest']['Item'][answerArray[i][1][0]] = { "S": answerArray[i][1][1]};
+        // tempObj['PutRequest']['Item'][answerArray[i][1][0]] = { "S": answerArray[i][1][1]};
         // date submitted
-        tempObj['PutRequest']['Item'][answerArray[i][2][0]] = { "S": answerArray[i][2][1]};
+        // tempObj['PutRequest']['Item'][answerArray[i][2][0]] = { "S": answerArray[i][2][1]};
         // description
         tempObj['PutRequest']['Item'][answerArray[i][3][0]] = { "S": answerArray[i][3][1]};
         // Categories
-        tempObj['PutRequest']['Item'][answerArray[i][4][0]] = { "L": answerArray[i][4][1]};        
+        // tempObj['PutRequest']['Item'][answerArray[i][4][0]] = { "L": answerArray[i][4][1]};        
         // createdAt
         tempObj['PutRequest']['Item'][answerArray[i][5][0]] = { "S": answerArray[i][2][1]};
         // updatedAt
@@ -173,8 +173,8 @@ function buildJSONStringForAnswerOutput(answerArray, answerTable){
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
     // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, JSONString, 'utf8')
-    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${answerTable}.json`, JSONString, 'utf8')
-    let readAnswerObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${answerTable}.json`, 'utf8');
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, JSONString, 'utf8')
+    let readAnswerObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${answerTable}.json`, 'utf8');
     let parseReadAnswerObj = JSON.parse(readAnswerObj)
     let answerObj = []
     for(let item = 0; item < parseReadAnswerObj['RecursiveThinkingInterviewQuestionsAnswers'].length; item += 1){

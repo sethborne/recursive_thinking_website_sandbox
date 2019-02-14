@@ -97,8 +97,8 @@ function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
     console.log(JSONString);
     // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, JSONString, 'utf8')
     // read back the db fill file
-    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${skillTable}.json`, JSONString, 'utf8')
-    let tempReadArr = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${skillTable}.json`, 'utf8');
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, JSONString, 'utf8')
+    let tempReadArr = fs.readFileSync(`../../recursive_thinking_server/db_fill/${skillTable}.json`, 'utf8');
     let parseTempReadObj = JSON.parse(tempReadArr);
     // console.log(parseTempReadObj);
     let tempArr = []

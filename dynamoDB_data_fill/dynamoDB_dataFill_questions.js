@@ -122,7 +122,7 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
         // Title
         tempObj['PutRequest']['Item'][questionArray[i][1][0]] = { "S": questionArray[i][1][1]};
         // Submitted
-        tempObj['PutRequest']['Item'][questionArray[i][2][0]] = { "S": questionArray[i][2][1]};
+        // tempObj['PutRequest']['Item'][questionArray[i][2][0]] = { "S": questionArray[i][2][1]};
         // Description
         tempObj['PutRequest']['Item'][questionArray[i][3][0]] = { "S": questionArray[i][3][1]};
         // Categories
@@ -171,8 +171,8 @@ function buildJSONStringForLessonOutput(questionArray, questionTable){
     let JSONString = JSON.stringify(string)
     console.log(JSONString);
     // fs.writeFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, JSONString, 'utf8')
-    fs.writeFileSync(`../../recursive_thinking_server_react/db_fill/${questionTable}.json`, JSONString, 'utf8')
-    let readQuestionObj = fs.readFileSync(`../../recursive_thinking_server_react/db_fill/${questionTable}.json`, 'utf8');
+    fs.writeFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, JSONString, 'utf8')
+    let readQuestionObj = fs.readFileSync(`../../recursive_thinking_server/db_fill/${questionTable}.json`, 'utf8');
     let parseReadQuestionObj = JSON.parse(readQuestionObj)
     let questionObj = []
     for(let item = 0; item < parseReadQuestionObj['RecursiveThinkingInterviewQuestions'].length; item += 1){
