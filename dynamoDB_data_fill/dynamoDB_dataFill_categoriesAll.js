@@ -7,9 +7,18 @@ const uuidv1 = require('uuid/v1');
 
 let allFunctions = require('../all_functions/all_functions.js');
 
-let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingDeveloperProfilesIdArray.json', 'utf8');
+let readJSONFromUserIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingUsersIdArray.json', 'utf8');
 
 let currentIdsForUsers = JSON.parse(readJSONFromUserIdFile);
+
+let readJSONFromInterviewQuestionIdFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestionsIdArray.json', 'utf8');
+
+let currentIdsForInterviewQuestions = JSON.parse(readJSONFromInterviewQuestionIdFile);
+// console.log('AllUsers', currentIdsForUsers);
+
+let readJSONFromInterviewQuestionFile = fs.readFileSync('../dynamoDB_mock_data_returns/RecursiveThinkingInterviewQuestions.json', 'utf8');
+
+let currentInterviewQuestions = JSON.parse(readJSONFromInterviewQuestionFile);
 // console.log('AllUsers', currentIdsForUsers);
 
 const allSkillsLanguageArray = [ 'JavaScript', 'HTML', 'HTML5', 'CSS', 'CSS3', 'jQuery', 'AngularJS', 'Angular', 'React', 'ReactJS', 'C#', '.NetCore', 'Nancy', 'Python', 'Django', 'Flask', 'Bootstrap', 'WebPack' ];
@@ -86,7 +95,7 @@ buildTypeOfArray(allSkillsLanguageArray, 'language')
 buildTypeOfArray(allSkillsProfessionalArray, 'professional')
 buildTypeOfArray(allSkillsSoftwareArray, 'software')
 
-console.log(typeOfArray)
+console.log('typeOfArray', typeOfArray)
 
 function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
     let string = {
@@ -99,8 +108,11 @@ function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
         // build an array of Users with Skill
         let usersWithSkillArr = [];
         let userIdArray = [...currentIdsForUsers];
+        let questionsWithCategoryArr = [];
+        let questionIdArray = [...currentIdsForInterviewQuestions]
         let loopLength = allFunctions.getRandomNumber(currentIdsForUsers.length)
-        
+        let createdByUser = userIdArray[allFunctions.getRandomIndexOfArray(userIdArray.length)]
+        // start user skill array
         for(let i = 0; i < loopLength; i += 1){
           let randomIndex = allFunctions.getRandomIndexOfArray(userIdArray.length);
           let tempString = {
@@ -110,14 +122,32 @@ function buildJSONStringForSkillOutput(skillIdArray, skillArray, skillTable){
           userIdArray.splice(randomIndex, 1)
         }
         // end user skill array
-        console.log('Id', skillIdArray[i])
+        // make intquestwithcategory
+        // questions have a categories array currentInterviewQuestions
+        // look through each intquestion for current skill ID
+        // console.log('skillId: ', skillIdArray[i], currentInterviewQuestions)
+        currentInterviewQuestions.forEach(question => {
+          if(question.categories.includes(skillIdArray[i])){
+            let tempString = {
+              "S": question.Id
+            }
+            questionsWithCategoryArr.push(tempString)
+            // console.log('skillId: ', skillIdArray[i], 'question: ', question.Id, 'questionCat: ', question.categories, )
+          }
+        })
+        // end intquestwithcategory
+        // console.log('Id', skillIdArray[i])
         let tempObj = {
           PutRequest:{
             Item: { 
               Id: { S: skillIdArray[i] },
               name: { S: skillArray[i][0] },
               // type: { S: skillArray[i][1] },
-              _usersWithSkill: { L: usersWithSkillArr }
+              _usersWithSkill: { L: usersWithSkillArr },
+              _interviewquestionsWithCategory: { L: questionsWithCategoryArr},
+              _createdByUser: { S: createdByUser },
+              createdAt: { "S": new Date().toString()},
+              updatedAt: { "S": new Date().toString()}
             }
           }
         }
